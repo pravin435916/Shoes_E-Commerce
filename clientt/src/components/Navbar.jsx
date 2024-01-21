@@ -24,16 +24,16 @@ function Navbar() {
                 <div className='flex gap-8 justify-center items-center'>
                     <Link className='hover:text-orange-600' to='/' >Home</Link>
                     <Link className='hover:text-orange-600' to='/shop' >Shop</Link>
-                    <Link className='hover:text-orange-600' to='/' >Blog</Link>
-                    <Link className='hover:text-orange-600' to='/' >Pages</Link>
-                    <Link className='hover:text-orange-600' to='/' >Contact</Link>
-                    <Link className='hover:text-orange-600' to='/' ><IoCartOutline /></Link>
-                    <Link className='hover:text-orange-600' to='/' onClick={opensearch}><IoMdSearch /></Link>
+                    <Link className='hover:text-orange-600' to='/blog' >Blog</Link>
+                    <Link className='hover:text-orange-600' to='/pages' >Pages</Link>
+                    <Link className='hover:text-orange-600' to='/contact' >Contact</Link>
+                    <Link className='hover:text-orange-600' to='/cart' ><IoCartOutline /></Link>
+                    <Link className='hover:text-orange-600' to='/search' onClick={opensearch}><IoMdSearch /></Link>
                 </div>
             </div>
             { bar && 
             <div className='w-[70%] bg-orange-400 border shadow-xl p-5 flex items-center justify-between transition-all'>
-                <input className='w-[80%] bg-transparent border-b text-black border-black outline-none' placeholder='search product' type="search" name="search" id="" />
+                <input className='w-[80%] bg-transparent border-b text-black border-black outline-none ' placeholder='search product' type="search" name="search" id="" />
                 <span className='text-2xl cursor-pointer' onClick={opensearch}><RxCross2 /></span>
             </div>
               }
