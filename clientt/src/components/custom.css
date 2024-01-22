@@ -1,0 +1,82 @@
+.h1{
+    color: red;
+}
+.button {
+    width: fit-content;
+    display: flex;
+    padding: 0.8em 1.1em;
+    gap: 0.4rem;
+    border: none;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
+    background: linear-gradient(
+        15deg,
+        red,
+        orange,
+        yellow
+      )
+      no-repeat;
+    background-size: 300%;
+    background-position: left center;
+    transition: background 0.3s ease;
+    color: #fff;
+  }
+  
+  .button:hover {
+    background-size: 320%;
+    background-position: right center;
+  }
+
+#butt1,
+#butt2,
+#butt3 {
+    margin-right: 0; /* Set initial margin to 0 */
+    transition: margin-right 0.3s ease; /* Smoothly transition the margin-right change over 0.3 seconds with an ease-in-out timing function */
+}
+
+#butt1:hover
+ {
+    margin-right: 80px;
+    
+}
+
+#butt2:hover{
+    margin-right:100px; 
+}
+
+
+#butt1:hover::after
+ {
+    content: "Add to Cart";
+    margin-left:120px; 
+    
+    font-size:15px; 
+    color:black;
+    white-space: nowrap;
+    
+}
+
+#butt2:hover::after
+ {
+    content: "Add to Wishlist";
+    margin-left:140px; 
+    
+    font-size:15px; 
+    color:black;
+    white-space: nowrap;
+    
+}
+
+#butt3:hover::after
+ {
+    content: "View More";
+    margin-left:115px; 
+    
+    font-size:15px; 
+    color:black;
+    white-space: nowrap;
+    
+}
+
