@@ -86,7 +86,7 @@ const NikeData = [
         id:10,
         name : "Nike SB Force 58",
         desc : "The latest and greatest innovation to hit the streets, the Force 58 gives you the durability of a cupsole with the flexibility of vulcanised shoes.",
-        img : "https://d3pnpe87i1fkwu.cloudfront.net/wp-content/uploads/2018/05/conceptx-green-white-black-1_1200x.png",
+        img : "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/30ceab71-d94b-4cef-a768-d41bef344002/sb-force-58-skate-shoes-LJNW5L.png",
         gender : "men",
         price : "5 977.00",
         star:4

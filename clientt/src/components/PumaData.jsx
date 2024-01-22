@@ -57,7 +57,7 @@ const PumaData=[
         id:7,
         name : "Fast-FWD NITRO Elite Women's Running Shoes",
         desc : "Carbon fibre plate engineered to stabilise the midsole while maximising energy transfer.LT: Lightweight, high traction rubber compound designed for the ultimate race-day performance",
-        img : "https://d3pnpe87i1fkwu.cloudfront.net/wp-content/uploads/2018/05/conceptx-green-white-black-1_1200x.png",
+        img : "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/376592/05/sv04/fnd/IND/fmt/png/Fast-FWD-NITRO%E2%84%A2-Elite-Women's-Running-Shoes",
         gender : "women",
         price : "19,999",
         star: 2
