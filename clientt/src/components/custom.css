@@ -28,7 +28,6 @@
     background-size: 320%;
     background-position: right center;
   }
-
 #butt1,
 #butt2,
 #butt3 {
@@ -80,8 +79,3 @@
     
 }
 
-#product-img{
-    aspect-ratio: 3/2;
-    object-fit:contain;
-
-}

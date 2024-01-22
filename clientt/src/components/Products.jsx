@@ -15,12 +15,12 @@ function Products() {
             {/* <div className='flex items-center justify-center gap-2 w-[80%] flex-wrap'> */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6 w-[90%] ">
             {NikeData.map((product) => (
-                <div className='w-96 h-96 flex flex-col justify-center items-start gap-1 p-2' key={product.id}>
-                    <div className='w-72 h-72 bg-blue-300 flex justify-center items-center'>
-                    <img className='w-48 h-52' src={product.img} alt={product.name} id='product-img' />
+                <div className='w-96 h-96 flex flex-col justify-center items-start gap-1 p-2 mb-10 border-gray-200' key={product.id}  id='product-card'>
+                    <div className='w-72 h-90 flex justify-center items-center'>
+                    <img className='w-64 h-80 mr-10 rounded' src={product.img} alt={product.name} id='product-img' />
                     </div>
                     <h2 className='text-gray-400'>{product.name}</h2>
-                    <span className='w-24 sm:w-72 text-xs sm:text-lg'>{product.des}</span>
+                    {/* <span className='w-24 sm:w-72 text-xs sm:text-lg'>{product.desc}</span> */}
                     <span>${product.price}</span>
                     <div className='flex gap-2'>
                         <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer  ' title='Add to Cart' id='butt1'><IoMdCart className='z-10 absolute'/></span>
