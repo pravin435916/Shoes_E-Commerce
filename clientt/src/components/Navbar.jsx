@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { FaInstagram } from 'react-icons/fa6';
-// import { CiLinkedin } from 'react-icons/ci';
-// import { FaGithub } from 'react-icons/fa';
-// import { SiCodeproject, SiCodechef } from 'react-icons/si';
 import { IoCartOutline } from "react-icons/io5";
 import { IoMdSearch } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
+import { FaRegUser } from "react-icons/fa";
 
+import { motion } from "framer-motion"
 function Navbar() {
     const [bar,setbar] = useState(false)
     function opensearch() {
@@ -16,8 +14,8 @@ function Navbar() {
     return (
 
         <div className='w-full flex justify-center items-center' >
-          <div className='w-full flex flex-col justify-center items-center'>
-            <div className='w-[70%]  border shadow-xl p-7 mt-8 flex items-center justify-between'>
+          <div className='w-full flex flex-col justify-center items-center '>
+            <div className='w-[70%]  border shadow-xl p-7 mt-8 flex items-center justify-between bg-white z-10 '>
                 <div>
                     <h1>Logo</h1>
                 </div>
@@ -28,14 +26,21 @@ function Navbar() {
                     <Link className='hover:text-orange-600' to='/pages' >Pages</Link>
                     <Link className='hover:text-orange-600' to='/contact' >Contact</Link>
                     <Link className='hover:text-orange-600' to='/cart' ><IoCartOutline /></Link>
-                    <Link className='hover:text-orange-600' to='/search' onClick={opensearch}><IoMdSearch /></Link>
+                    <span className='hover:text-orange-600 cursor-pointer'  onClick={opensearch}><IoMdSearch /></span>
+                    <Link className='hover:text-orange-600 cursor-pointer' to='/contact' ><FaRegUser /></Link>
                 </div>
             </div>
             { bar && 
-            <div className='w-[70%] bg-orange-400 border shadow-xl p-5 flex items-center justify-between transition-all'>
+            <motion.div
+            animate={{
+                x: 0,
+                y: 56,
+                transition:"ease in"
+              }}
+               className='w-[70%] absolute  top-14 bg-orange-400 border shadow-xl p-5 flex items-center justify-between transition-all'>
                 <input className='w-[80%] bg-transparent border-b text-black border-black outline-none ' placeholder='search product' type="search" name="search" id="" />
-                <span className='text-2xl cursor-pointer' onClick={opensearch}><RxCross2 /></span>
-            </div>
+                <span className=' cursor-pointer' onClick={opensearch}><RxCross2 /></span>
+            </motion.div>
               }
           </div>
         </div>
