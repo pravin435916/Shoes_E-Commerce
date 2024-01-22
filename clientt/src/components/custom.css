@@ -1,7 +1,33 @@
 .h1{
     color: red;
 }
-
+.button {
+    width: fit-content;
+    display: flex;
+    padding: 0.8em 1.1em;
+    gap: 0.4rem;
+    border: none;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
+    background: linear-gradient(
+        15deg,
+        red,
+        orange,
+        yellow
+      )
+      no-repeat;
+    background-size: 300%;
+    background-position: left center;
+    transition: background 0.3s ease;
+    color: #fff;
+  }
+  
+  .button:hover {
+    background-size: 320%;
+    background-position: right center;
+  }
 
 #butt1,
 #butt2,
@@ -53,7 +79,6 @@
     white-space: nowrap;
     
 }
-
 
 #product-img{
     aspect-ratio: 3/2;
