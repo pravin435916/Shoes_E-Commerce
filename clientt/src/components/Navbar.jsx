@@ -15,7 +15,7 @@ function Navbar() {
 
         <div className='w-full flex justify-center items-center' >
           <div className='w-full flex flex-col justify-center items-center overflow-hidden'>
-            <div className='w-[70%]  border shadow-xl p-7 mt-8 flex flex-col sm:flex-row items-center justify-between bg-white z-10 '>
+            <div className='w-[70%] border shadow-2xl p-7 mt-8 flex flex-col sm:flex-row items-center justify-between bg-white z-10 '>
                 <div>
                     <h1>Logo</h1>
                 </div>
