@@ -34,6 +34,11 @@
     margin-right: 0; /* Set initial margin to 0 */
     transition: margin-right 0.3s ease; /* Smoothly transition the margin-right change over 0.3 seconds with an ease-in-out timing function */
 }
+@media screen and (max-width:768px){
+    #btn1:hover{
+        margin-right: 0px;
+    }
+}
 
 #butt1:hover
  {
@@ -77,5 +82,10 @@
     color:black;
     white-space: nowrap;
     
+}
+
+#product-img{
+    aspect-ratio: 3/2;
+    object-fit: contain;
 }
 
