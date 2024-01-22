@@ -17,7 +17,7 @@ function Products() {
             {NikeData.map((product) => (
                 <div className='w-96 h-96 flex flex-col justify-center items-start gap-1 p-2' key={product.id}>
                     <div className='w-72 h-72 bg-blue-300 flex justify-center items-center'>
-                    <img className='w-48 h-52' src={product.img} alt={product.name} />
+                    <img className='w-48 h-52' src={product.img} alt={product.name} id='product-img' />
                     </div>
                     <h2 className='text-gray-400'>{product.name}</h2>
                     <span className='w-72 text-lg'>{product.des}</span>
