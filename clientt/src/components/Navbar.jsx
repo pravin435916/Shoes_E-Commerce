@@ -14,12 +14,12 @@ function Navbar() {
     return (
 
         <div className='w-full flex justify-center items-center' >
-          <div className='w-full flex flex-col justify-center items-center '>
-            <div className='w-[70%]  border shadow-xl p-7 mt-8 flex items-center justify-between bg-white z-10 '>
+          <div className='w-full flex flex-col justify-center items-center overflow-hidden'>
+            <div className='w-[70%]  border shadow-xl p-7 mt-8 flex flex-col sm:flex-row items-center justify-between bg-white z-10 '>
                 <div>
                     <h1>Logo</h1>
                 </div>
-                <div className='flex gap-8 justify-center items-center'>
+                <div className='flex gap-8 justify-center items-center sm:flex-row flex-col'>
                     <Link className='hover:text-orange-600' to='/' >Home</Link>
                     <Link className='hover:text-orange-600' to='/shop' >Shop</Link>
                     <Link className='hover:text-orange-600' to='/blog' >Blog</Link>

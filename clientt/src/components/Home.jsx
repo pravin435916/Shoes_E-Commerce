@@ -5,10 +5,10 @@ import { IoIosAdd } from "react-icons/io";
 import Products from './Products';
 function Home() {
   return (
-    <div className='w-full flex justify-center items-center flex-col h-full'>
-       <div className='flex justify-center items-center gap-5 w-[80%] h-[90vh]'>
+    <div className='w-full sm:flex justify-center items-center flex-col h-full'>
+       <div className='flex justify-center items-center gap-5 flex-col sm:flex-row w-[80%] h-[90vh]'>
         <div className='flex flex-col items-start gap-8 p-10'>
-          <div className='flex flex-col text-7xl font-bold '>
+          <div className='flex flex-col text-3xl sm:7xl font-bold '>
           <span>Nike New</span>
           <span>Collection!</span>
           </div>
