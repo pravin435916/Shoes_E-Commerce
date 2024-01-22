@@ -9,6 +9,7 @@ import PumaData from './PumaData';
 function Products() {
     return (
         <div className='w-full  flex items-center justify-center flex-col h-full gap-8 overflow-hidden'>
+            {/* <img src="" alt="" /> */}
             <div className='flex items-center justify-center flex-col m-5 gap-4'>
                 <span className='text-5xl font-bold'>Nike Collection</span> 
                 <span className='text-gray-500 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi incidunt neque pariatur.</span>
@@ -23,7 +24,7 @@ function Products() {
 
 
                     </div>
-                    <h2 className='w-32 sm:w-72 text-gray-400'>{product.name}</h2>
+                    <h2 className='w-32 sm:w-72 text-gray-700'>{product.name}</h2>
                     <span className='w-24 h-4 sm:w-72 text-xs overflow-hidden'>{product.desc}</span>
                     <span>${product.price}</span>
                     <div className='flex gap-2'>
@@ -40,14 +41,13 @@ function Products() {
                 <span className='text-5xl font-bold'>Puma Collection</span> 
                 <span className='text-gray-500 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi incidunt neque pariatur.</span>
             </div>
-            {/* <div className='flex items-center justify-center gap-2 w-[80%] flex-wrap'> */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6 w-[90%] ">
             {PumaData.map((product) => (
                 <div className='w-96 h-96 flex flex-col justify-center items-start gap-1 p-2 mb-10 border-gray-200' key={product.id}  id='product-card'>
                     <div className='w-72 h-90 flex justify-center items-center'>
                     <img className='w-64 h-80 mr-10 rounded' src={product.img} alt={product.name} id='product-img' />
                     </div>
-                    <h2 className='w-32 sm:w-72 text-xs text-gray-400'>{product.name}</h2>
+                    <h2 className='w-32 sm:w-72 text-gray-700'>{product.name}</h2>
                     <span className='w-24 h-4 sm:w-72 text-xs overflow-hidden'>{product.desc}</span>
                     <span>${product.price}</span>
                     <div className='flex gap-2'>
@@ -58,6 +58,7 @@ function Products() {
                 </div>
             ))}
            </div>
+           
         </div>
     )
 }
