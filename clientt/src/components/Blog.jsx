@@ -1,30 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import NikeData from './NikeData';
 const Blog = () => {
-    // const dealsData = [
-    //     {
-    //       title: 'Deal Title 1',
-    //       description: 'Save 20% on selected items. Limited time offer!',
-    //       imageUrl: 'https://placekitten.com/800/600',
-    //       link: '#',
-    //     },
-    //     {
-    //       title: 'Deal Title 2',
-    //       description: 'Save 20% on selected items. Limited time offer!',
-    //       imageUrl: 'https://placekitten.com/800/600',
-    //       link: '#',
-    //     },
-    //     {
-    //       title: 'Deal Title 3',
-    //       description: 'Save 20% on selected items. Limited time offer!',
-    //       imageUrl: 'https://placekitten.com/800/600',
-    //       link: '#',
-    //     },
-    //   ];
       const settings = {
         dots: true,
         infinite: true,

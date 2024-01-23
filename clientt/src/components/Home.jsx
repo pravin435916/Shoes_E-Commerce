@@ -14,7 +14,7 @@ import Image from './Images';
 function Home() {
   return (
     <>
-    <div className='w-full sm:flex justify-center items-center flex-col h-full'>
+    <div className='w-full sm:flex justify-center items-center flex-col h-full overflow-hidden'>
       <img className='absolute w-[64rem] right-0 -z-10 top-0' src={gradient} alt="" />
        <div className='flex justify-center items-center gap-5 flex-col sm:flex-row w-full sm:w-[80%] h-[90vh]'>
         <div className='flex flex-col items-center sm:items-start gap-8 p-2 sm:p-10 '>
@@ -61,7 +61,7 @@ function Home() {
       
     </div>
 
-    <Image/>
+    {/* <Image/> */}
     </>
   )
 }
