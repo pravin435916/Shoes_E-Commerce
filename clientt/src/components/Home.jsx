@@ -8,8 +8,12 @@ import { IoMdCart } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
 import { HiOutlineViewfinderCircle } from "react-icons/hi2";
 import NikeData from './NikeData';
+import Image from './Images';
+
+
 function Home() {
   return (
+    <>
     <div className='w-full sm:flex justify-center items-center flex-col h-full'>
       <img className='absolute w-[64rem] right-0 -z-10 top-0' src={gradient} alt="" />
        <div className='flex justify-center items-center gap-5 flex-col sm:flex-row w-[80%] h-[90vh]'>
@@ -40,7 +44,7 @@ function Home() {
             {NikeData.map((product) => (
                 <div className='w-80 h-96 sm:w-76 sm:h-[28rem] flex flex-col justify-center items-start gap-1 p-2 overflow-hidden' key={product.id}>
                     <div className='sm:w-full sm:h-72 flex justify-center items-center'>
-                    <img className='w-40 h-36 sm:w-72 sm:h-72' src={product.img} alt={product.name} id='product-img'/>
+                    <img className='w-40 h-36 sm:w-72 sm:h-72' src={product.img} alt={product.name}/>
                     </div>
                     <h2 className='w-32 sm:w-72 text-gray-700'>{product.name}</h2>
                     <span className='w-24 h-4 sm:w-72 text-xs overflow-hidden'>{product.desc}</span>
@@ -53,7 +57,12 @@ function Home() {
                 </div>
             ))}
            </div>
+
+      
     </div>
+
+    <Image/>
+    </>
   )
 }
 

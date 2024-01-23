@@ -1,7 +1,8 @@
-.h1{
+.h1 {
     color: red;
-}
-.button {
+  }
+  
+  .button {
     width: fit-content;
     display: flex;
     padding: 0.8em 1.1em;
@@ -11,13 +12,7 @@
     border-radius: 30px;
     cursor: pointer;
     text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
-    background: linear-gradient(
-        15deg,
-        red,
-        orange,
-        yellow
-      )
-      no-repeat;
+    background: linear-gradient(15deg, red, orange, yellow) no-repeat;
     background-size: 300%;
     background-position: left center;
     transition: background 0.3s ease;
@@ -28,64 +23,224 @@
     background-size: 320%;
     background-position: right center;
   }
-#butt1,
-#butt2,
-#butt3 {
-    margin-right: 0; /* Set initial margin to 0 */
-    transition: margin-right 0.3s ease; /* Smoothly transition the margin-right change over 0.3 seconds with an ease-in-out timing function */
-}
-@media screen and (max-width:768px){
-    #btn1:hover{
-        margin-right: 0px;
+  
+  #butt1,
+  #butt2,
+  #butt3 {
+    margin-right: 0;
+    /* Set initial margin to 0 */
+    transition: margin-right 0.3s ease;
+    /* Smoothly transition the margin-right change over 0.3 seconds with an ease-in-out timing function */
+  }
+  
+  @media screen and (max-width: 768px) {
+    #btn1:hover {
+      margin-right: 0px;
     }
-}
-
-#butt1:hover
- {
+  }
+  
+  #butt1:hover {
     margin-right: 80px;
-    
-}
-
-#butt2:hover{
-    margin-right:100px; 
-}
-
-
-#butt1:hover::after
- {
+  }
+  
+  #butt2:hover {
+    margin-right: 100px;
+  }
+  
+  #butt1:hover::after {
     content: "Add to Cart";
-    margin-left:120px; 
-    
-    font-size:15px; 
-    color:black;
+    margin-left: 120px;
+    font-size: 15px;
+    color: black;
     white-space: nowrap;
-    
-}
-
-#butt2:hover::after
- {
+  }
+  
+  #butt2:hover::after {
     content: "Add to Wishlist";
-    margin-left:140px; 
-    
-    font-size:15px; 
-    color:black;
+    margin-left: 140px;
+    font-size: 15px;
+    color: black;
     white-space: nowrap;
-    
-}
-
-#butt3:hover::after
- {
+  }
+  
+  #butt3:hover::after {
     content: "View More";
-    margin-left:115px; 
-    
-    font-size:15px; 
-    color:black;
+    margin-left: 115px;
+    font-size: 15px;
+    color: black;
     white-space: nowrap;
-    
-}
-
-#product-img{
+  }
+  
+  #product-img {
     aspect-ratio: 3/2;
     object-fit: contain;
-}
+  }
+  
+  #navbar {
+    position: sticky;
+    top: -30px;
+    z-index: 99;
+  }
+  
+  .blackfriday {
+    height: 404px;
+    width: 370px;
+    margin-left: -80px;
+  }
+  
+  #shoeimg2 {
+    margin-left: -100px; /* Adjusted margin to align with the other images */
+  }
+  #image-wrapper4 {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #image-wrapper4::before {
+    content: "Lorem Ipsum 4";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    text-align:center; 
+    padding-top:50%; 
+    opacity:0;
+    color:white;
+    overflow: hidden;
+    transform: translateY(20%);
+    transition: opacity 0.4s ease,transform 0.4s ease;
+  }
+  
+  #image-wrapper4:hover::before {
+    opacity: 1;
+    overflow: hidden;
+    transform: translateY(0);
+  }
+  
+  .image-wrapper {
+    position: relative;
+    overflow: hidden;
+   
+  }
+  
+  .image-wrapper::before {
+    content: "Lorem Ipsum1";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    text-align:center; 
+    padding-top:75%; 
+    opacity:0;
+    color:white;
+    overflow: hidden;
+    transform: translateY(20%);
+    transition: opacity 0.3s ease,transform 0.4s ease;
+  }
+  
+  .image-wrapper:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+    overflow: hidden;
+  }
+  
+  .image-wrapper2{
+    position: relative;
+    
+    
+  }
 
+  .image-wrapper2::before {
+    content: "Lorem Ipsum";
+    position: absolute;
+    top: 0;
+    left: -100px;
+    right: 132px;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    opacity: 0;
+    text-align:center; 
+    padding-top:50%; 
+    overflow: hidden;
+    color:white;
+    transform: translateY(20%);
+    transition: opacity 0.3s ease,transform 0.4s ease;
+  }
+  
+  .image-wrapper2:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+    overflow: hidden;
+  }
+
+  .image-wrapper3 {
+    position: relative;
+    overflow: hidden;
+   
+  }
+  
+  .image-wrapper3::before {
+    content: "Lorem Ipsum3";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    text-align:center; 
+    overflow: hidden;
+    opacity:0;
+    color:white;
+    transform: translateY(20%);
+    transition: opacity 0.3s ease,transform 0.4s ease;
+  }
+  
+  .image-wrapper3:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+    overflow: hidden;
+  }
+
+  .image-wrapper5{
+    position:relative;
+
+  }
+
+  .image-wrapper5::before {
+    content: "Black Friday Sale";
+    position: absolute;
+    top: 0;
+    left: -80px;
+    right: 80px;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    opacity: 0;
+    color:white;
+    text-align: center;
+    padding-top:120%;
+    
+    transition: opacity 0.3s ease;
+  }
+  
+  .image-wrapper5:hover::before {
+    opacity: 1;
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+  
+    to {
+      transform: translateY(0);
+    }
+  }
