@@ -5,7 +5,7 @@ import { IoMdSearch } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import { FaRegUser } from "react-icons/fa";
 import { motion } from "framer-motion";
-
+import { CiHeart } from "react-icons/ci";
 function Navbar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [bar, setBar] = useState(false);
@@ -58,6 +58,7 @@ function Navbar() {
             <Link className='hover:text-orange-600' to='/pages' onClick={()=> setMenuOpen(false)}>Pages</Link>
             <Link className='hover:text-orange-600' to='/contact' onClick={()=> setMenuOpen(false)}>Contact</Link>
             <Link className='hover:text-orange-600' to='/cart' onClick={()=> setMenuOpen(false)}><IoCartOutline /></Link>
+            <Link className='hover:text-orange-600 cursor-pointer' to='/wishlist' onClick={()=> setMenuOpen(false)}><CiHeart /></Link>
             <span className='hover:text-orange-600 cursor-pointer none sm:block' onClick={openSearch}><IoMdSearch /></span>
             <Link className='hover:text-orange-600 cursor-pointer' to='/contact' onClick={()=> setMenuOpen(false)}><FaRegUser /></Link>
           </div>
