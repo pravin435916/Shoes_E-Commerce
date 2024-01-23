@@ -10,15 +10,15 @@ import { HiOutlineViewfinderCircle } from "react-icons/hi2";
 import NikeData from './NikeData';
 function Home() {
   return (
-    <div className='w-full sm:flex justify-center items-center flex-col h-full'>
+    <div className=' w-full sm:flex justify-center items-center flex-col h-full overflow-hidden'>
       <img className='absolute w-[64rem] right-0 -z-10 top-0' src={gradient} alt="" />
-       <div className='flex justify-center items-center gap-5 flex-col sm:flex-row w-[80%] h-[90vh]'>
-        <div className='flex flex-col items-start gap-8 p-10'>
-          <div className='flex flex-col text-3xl sm:text-7xl font-bold '>
+       <div className='flex justify-center items-center gap-5 flex-col sm:flex-row w-full sm:w-[80%] h-[90vh]'>
+        <div className='flex flex-col items-center sm:items-start gap-8 p-2 sm:p-10 '>
+          <div className='flex flex-col text-3xl sm:text-7xl font-bold mr-5 '>
           <span>Nike New</span>
           <span>Collection!</span>
           </div>
-          <div className='w-[28rem]'>
+          <div className='w-[28rem] p-15'>
           <span >Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, quas placeat adipisci explicabo, vero dignissimos excepturi odit itaque provident nulla dolor quaerat quibusdam.</span>
           </div>
           <div className='flex gap-3'>
