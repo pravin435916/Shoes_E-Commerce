@@ -49,7 +49,21 @@ function Navbar() {
                 }
             </div>
         </div>
-    );
+        {bar &&
+          <motion.div
+            animate={{
+              x: 0,
+              y: 56,
+              transition: "ease-in"
+            }}
+            className='w-[70%] absolute top-  bg-orange-400 border shadow-xl p-3 sm:p-5 flex items-center justify-between z-10'>
+            <input className='w-[80%] bg-transparent border-b text-black border-black outline-none' placeholder='Search product' type="search" name="search" id="" />
+            <span className='cursor-pointer' onClick={openSearch}><RxCross2 /></span>
+          </motion.div>
+        }
+      </div>
+    </div>
+  );
 }
 
 export default Navbar;
