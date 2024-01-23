@@ -1,0 +1,20 @@
+.truck-animation {
+    width: 200px;
+    height: 150px;
+    background: url('../assets/truck.png') no-repeat center;
+    background-size: cover;
+    animation: runTruck 8s linear infinite;
+  }
+  
+  @keyframes runTruck {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(200px); 
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  

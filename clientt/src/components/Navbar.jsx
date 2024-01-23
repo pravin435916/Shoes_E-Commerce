@@ -59,6 +59,7 @@ function Navbar() {
             <Link className='hover:text-orange-600' to='/pages' onClick={()=> setMenuOpen(false)}>Pages</Link>
             <Link className='hover:text-orange-600' to='/contact' onClick={()=> setMenuOpen(false)}>Contact</Link>
             <Link className='hover:text-orange-600' to='/cart' onClick={()=> setMenuOpen(false)}><IoCartOutline /></Link>
+            <Link className='hover:text-orange-600' to='/wishlist' onClick={()=> setMenuOpen(false)}><CiHeart /></Link>
             <span className='hover:text-orange-600 cursor-pointer none sm:block' onClick={openSearch}><IoMdSearch /></span>
             <Link className='hover:text-orange-600 cursor-pointer' to='/contact' onClick={()=> setMenuOpen(false)}><FaRegUser /></Link>
           </div>

@@ -9,7 +9,6 @@ import PumaData from './PumaData';
 function Products() {
     return (
         <div className='w-full  flex items-center justify-center flex-col h-full gap-8 overflow-hidden'>
-            {/* <img src="" alt="" /> */}
             <div className='flex items-center justify-center flex-col m-5 gap-4'>
                 <span className='text-5xl font-bold'>Nike Collection</span> 
                 <span className='text-gray-500 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi incidunt neque pariatur.</span>
@@ -55,8 +54,7 @@ function Products() {
                 </div>
             ))}
            </div>
-           
-        </div>
+           </div>
     )
 }
 

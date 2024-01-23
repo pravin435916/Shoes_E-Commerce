@@ -39,7 +39,6 @@ function Home() {
                 <span className='text-5xl font-bold'>Nike Collection</span> 
                 <span className='text-gray-500 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi incidunt neque pariatur.</span>
             </div>
-            {/* <div className='flex items-center justify-center gap-2 w-[80%] flex-wrap'> */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6 w-[90%] ">
             {NikeData.map((product) => (
                 <div className='w-80 h-96 sm:w-76 sm:h-[28rem] flex flex-col justify-center items-start gap-1 p-2 overflow-hidden' key={product.id}>

@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import CardContainer from './CardContainer';
 import NikeData from './NikeData';
 const Blog = () => {
       const settings = {
@@ -32,22 +33,8 @@ const Blog = () => {
   return (
     <div className="container mx-auto mt-8">
       {/* Owner Details */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Meet the Owner</h2>
-        <div className="flex items-center">
-          <img
-            src="https://placekitten.com/100/100"
-            alt="Owner"
-            className="w-12 h-12 rounded-full mr-4"
-          />
-          <div>
-            <p className="text-gray-700">Name: John Doe</p>
-            <p className="text-gray-700">Email: john@example.com</p>
-            <p className="text-gray-700">Phone: +1 (555) 123-4567</p>
-          </div>
-        </div>
-      </section>
-
+      {/* add here */}
+      <CardContainer/>
       {/* Deals Section */}
       <section className="mb-8">
       <h2 className="text-5xl font-bold mb-4 p-5">Special Deals</h2>
