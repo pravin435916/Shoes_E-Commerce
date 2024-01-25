@@ -6,7 +6,15 @@ import Products from './Products';
 import gradient from '../assets/bg-gradient.png'
 import { IoMdCart } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
+import { CiDeliveryTruck } from "react-icons/ci";
+import { MdOutlineHeadsetMic } from "react-icons/md";
+import { GiReturnArrow } from "react-icons/gi";
+import { BsDatabase } from "react-icons/bs";
 import { HiOutlineViewfinderCircle } from "react-icons/hi2";
+import Adidas from '../assets/icons8-adidas-trefoil-50.png'
+import Nike from '../assets/icons8-nike-50.png';
+import Puma from '../assets/icons8-puma-a-german-multinational-company---designs-and-manufactures-athletic-and-casual-footwear,-apparel-and-accessories-24.png';
+import Jordan from '../assets/icons8-air-jordan-50.png';
 import NikeData from './NikeData';
 import Image from './Images';
 
@@ -59,8 +67,54 @@ function Home() {
 
       
     </div>
+ <div className='flex flex-col items-center sm:flex sm:flex-row sm:gap-36 sm:m-20 sm:pt-4 sm:pb-4 sm:justify-center gap-8 border border-gray-300 m-8 pt-2 pb-2 rounded-sm'>
+      <div className=''>
+        <CiDeliveryTruck className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'></CiDeliveryTruck>
+        <p className='text-center'>Fast Delivery</p>
+        <hr></hr>
+      </div>
+
+      <div>
+        <GiReturnArrow className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'></GiReturnArrow>
+        <p>Return Policy</p>
+      </div>
+
+      <div>
+         <MdOutlineHeadsetMic className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'></MdOutlineHeadsetMic>
+         <p>24x7 Customer Care</p>
+      </div>
+
+      <div>
+         <BsDatabase className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'></BsDatabase>
+         <p>Secure Payment</p>
+      </div>
+ </div>
+   
 
     <Image/>
+
+
+    <h2 className='text-center'>Brands Our Website Provides </h2>
+
+    <div className='flex flex-col sm:flex-row justify-center items-center sm:gap-20 gap-4 pb-8 mt-4'>
+        <div>
+          <img src={Adidas} className='h-20 w-20'></img>
+        </div>
+
+        <div>
+          <img src={Nike} className='h-20 w-20'></img>
+        </div>
+
+        <div>
+          <img src={Puma} className='h-20 w-20'></img>
+        </div>
+
+        <div>
+          <img src={Jordan} className='h-20 w-20'></img>
+        </div>
+
+    </div>
+
     </>
   )
 }
