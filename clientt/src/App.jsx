@@ -10,6 +10,7 @@ import Error404 from './components/Error404'
 import Shop from './components/Shop'
 import Cart from './components/Cart'
 import Footer from './components/Footer'
+import Wish from './components/Wish'
 function App() {
   return (
     <>
@@ -22,8 +23,8 @@ function App() {
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/SignUp" element={<CreateAccount/>}/>
           <Route path="/cart" element={<Cart/>}/>
-          <Route path="/wishlist" element={<Home/>}/>
-          <Route path="/pages" element={<Home/>}/>
+          <Route path="/wishlist" element={<Wish/>}/>
+          <Route path="/collections" element={<Products/>}/>
           <Route path="*" element={<Error404/>}/>
         </Routes>
         <Footer/>

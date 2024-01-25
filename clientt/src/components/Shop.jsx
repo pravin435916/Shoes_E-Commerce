@@ -2,19 +2,27 @@ import React, { useState } from 'react';
 import { IoMdCart } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
 import { HiOutlineViewfinderCircle } from "react-icons/hi2";
-import NikeData from './NikeData';
-import PumaData from './PumaData';
-
+import NikeData, { getNikeData, getPumaData } from './mergeData';
+import PumaData from './mergeData';
+import { addItem , wishItem } from '../redux/CartSlice';
+import { useDispatch } from 'react-redux';
 const Shop = () => {
+  const dispatch = useDispatch()
+  const nikeData = getNikeData();
+  const pumaData = getPumaData();
   const [nameFilter, setNameFilter] = useState('');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
   const [brand, setBrand] = useState('nike');
 
-  const removeFromCart = (itemId) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+  const addToCart = (product) => {
+    dispatch(addItem(product));
+    alert("Product is added to the cart")
   };
-
+  const wishToCart = (product) => {
+    dispatch(wishItem(product));
+    alert("Product is wishlisted to the cart")
+  };
   const handleBrandChange = (selectedBrand) => {
     console.log('Selected Brand:', selectedBrand);
     setBrand(selectedBrand);
@@ -32,7 +40,7 @@ const Shop = () => {
     setMaxPrice(event.target.value);
   };
 
-  const currentData = brand === 'nike' ? NikeData : PumaData;
+  const currentData = brand === 'nike' ? nikeData : pumaData;
   const filteredProducts = currentData.filter(product =>
     product.name.toLowerCase().includes(nameFilter.toLowerCase()) &&
     (minPrice === '' || product.price >= parseInt(minPrice, 10)) &&
@@ -40,8 +48,8 @@ const Shop = () => {
   );
 
   return (
-    <div className='flex w-full h-[80vh] my-5 absolute overflow-hidden'>
-      <div className='w-1/3 bg-blue-200 p-8 sticky top-0'>
+    <div className='flex sm:flex-row flex-col w-full h-[84vh]  relative  overflow-hidden'>
+      <div className='w-full mx-5 sm:w-[24rem] bg-white p-2 sm:p-8 block sm:sticky top-0'>
         <h1 className='text-2xl font-bold mb-4'>Filter Products</h1>
         <div className='mb-4'>
           <input
@@ -97,17 +105,17 @@ const Shop = () => {
         </div>
       </div>
 
-      <div className='w-2/3 bg-white p-8 overflow-y-auto'>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className='w-full sm:w-full bg-white p-8 overflow-auto'>
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-2">
           {filteredProducts.map(product => (
-            <div key={product.id} className='border p-4 rounded-md'>
+            <div key={product.id} className='border p-4 rounded-md h-[24rem] sm:h-full'>
               <img className='w-full h-40 object-cover mb-2' src={product.img} alt={product.name} />
-              <h2 className='text-lg font-semibold mb-2'>{product.name}</h2>
-              <p className='text-sm text-gray-600 mb-2'>{product.desc}</p>
+              <h2 className='text-[1rem] sm:text-lg font-semibold mb-2'>{product.name}</h2>
+              {/* <p className=' text-gray-600 mb-2 text-xs'>{product.desc}</p> */}
               <p className='text-lg font-bold text-blue-500'>${product.price}</p>
-              <div className='flex gap-2 mt-2'>
-                <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer' title='Add to Cart' id='butt1'><IoMdCart className='z-10 absolute' /></span>
-                <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer' id='butt2'><CiHeart className='z-10 absolute' /></span>
+              <div className='flex gap-2 mt-2 relative'>
+                <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer' title='Add to Cart' onClick={()=> addToCart(product)} id='butt1'><IoMdCart className='z-10 absolute' /></span>
+                <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer'  onClick={()=> wishToCart(product)} id='butt2'><CiHeart className='z-10 absolute' /></span>
                 <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer' id='butt3'><HiOutlineViewfinderCircle className='z-10 absolute' /></span>
               </div>
             </div>

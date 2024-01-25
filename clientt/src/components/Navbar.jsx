@@ -6,15 +6,17 @@ import { RxCross2 } from 'react-icons/rx';
 import { CiHeart } from "react-icons/ci";
 import { FaRegUser } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import Badge from '@mui/material/Badge';
 import './custom.css';
-
+import { useSelector } from 'react-redux';
 function Navbar() {
+  const cartsProducts  = useSelector(state => state.cart.items)
   const [bar, setBar] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
-  function openSearch() {
-    setBar(!bar);
-    setMenuOpen(false);
-  }
+  // function openSearch() {
+  //   setBar(!bar);
+  //   setMenuOpen(false);
+  // }
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -35,7 +37,7 @@ function Navbar() {
            <path d="M0 0h24v24H0V0z" fill="none" />
            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.41 14.59l-2.83-2.83L7 15.17l3.59 3.58 6.59-6.59-1.41-1.42-5.18 5.18z" />
          </svg>
-          <span className='font-bold overline'>JAP</span>
+          <span className='font-bold overline'>Jap</span>
           </div>
           {/* Responsive Menu Button */}
           <button
@@ -66,15 +68,17 @@ function Navbar() {
             <Link className='hover:text-orange-600' to='/' onClick={()=> setMenuOpen(false)}>Home</Link>
             <Link className='hover:text-orange-600' to='/shop' onClick={()=> setMenuOpen(false)}>Shop</Link>
             <Link className='hover:text-orange-600' to='/blog' onClick={()=> setMenuOpen(false)}>Blog</Link>
-            <Link className='hover:text-orange-600' to='/pages' onClick={()=> setMenuOpen(false)}>Pages</Link>
+            <Link className='hover:text-orange-600' to='/collections' onClick={()=> setMenuOpen(false)}>Collections</Link>
             <Link className='hover:text-orange-600' to='/contact' onClick={()=> setMenuOpen(false)}>Contact</Link>
+            <Badge badgeContent={cartsProducts.length} color="secondary">
             <Link className='hover:text-orange-600' to='/cart' onClick={()=> setMenuOpen(false)}><IoCartOutline /></Link>
+            </Badge>
             <Link className='hover:text-orange-600' to='/wishlist' onClick={()=> setMenuOpen(false)}><CiHeart /></Link>
-            <span className='hover:text-orange-600 cursor-pointer none sm:block' onClick={openSearch}><IoMdSearch /></span>
+            {/* <span className='hover:text-orange-600 cursor-pointer none sm:block' onClick={openSearch}><IoMdSearch /></span> */}
             <Link className='hover:text-orange-600 cursor-pointer' to='/contact' onClick={()=> setMenuOpen(false)}><FaRegUser /></Link>
           </div>
         </div>
-        {bar &&
+        {/* {bar &&
           <motion.div
             animate={{
               x: 0,
@@ -85,7 +89,7 @@ function Navbar() {
             <input className='w-[80%] bg-transparent border-b text-black border-black outline-none' placeholder='Search product' type="search" name="search" id="" />
             <span className='cursor-pointer' onClick={openSearch}><RxCross2 /></span>
           </motion.div>
-        }
+        } */}
       </div>
     </div>
   );

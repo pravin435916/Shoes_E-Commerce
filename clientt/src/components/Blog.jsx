@@ -3,10 +3,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import CardContainer from './CardContainer';
-import NikeData from './NikeData';
+import NikeData from './mergeData';
 import Instagram from '../assets/icons8-instagram-96.png';
 import LinkedIn from '../assets/icons8-linkedin-96.png';
 import Gmail from '../assets/icons8-gmail-96.png';
+import { getNikeData } from './mergeData';
+
 
 const Blog = () => {
  
