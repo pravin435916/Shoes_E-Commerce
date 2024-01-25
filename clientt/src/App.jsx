@@ -24,7 +24,7 @@ function App() {
           <Route path="/SignUp" element={<CreateAccount/>}/>
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/wishlist" element={<Wish/>}/>
-          <Route path="/pages" element={<Home/>}/>
+          <Route path="/collections" element={<Products/>}/>
           <Route path="*" element={<Error404/>}/>
         </Routes>
         <Footer/>

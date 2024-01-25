@@ -13,10 +13,10 @@ function Navbar() {
   const cartsProducts  = useSelector(state => state.cart.items)
   const [bar, setBar] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
-  function openSearch() {
-    setBar(!bar);
-    setMenuOpen(false);
-  }
+  // function openSearch() {
+  //   setBar(!bar);
+  //   setMenuOpen(false);
+  // }
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -68,17 +68,17 @@ function Navbar() {
             <Link className='hover:text-orange-600' to='/' onClick={()=> setMenuOpen(false)}>Home</Link>
             <Link className='hover:text-orange-600' to='/shop' onClick={()=> setMenuOpen(false)}>Shop</Link>
             <Link className='hover:text-orange-600' to='/blog' onClick={()=> setMenuOpen(false)}>Blog</Link>
-            <Link className='hover:text-orange-600' to='/pages' onClick={()=> setMenuOpen(false)}>Pages</Link>
+            <Link className='hover:text-orange-600' to='/collections' onClick={()=> setMenuOpen(false)}>Collections</Link>
             <Link className='hover:text-orange-600' to='/contact' onClick={()=> setMenuOpen(false)}>Contact</Link>
             <Badge badgeContent={cartsProducts.length} color="secondary">
             <Link className='hover:text-orange-600' to='/cart' onClick={()=> setMenuOpen(false)}><IoCartOutline /></Link>
             </Badge>
             <Link className='hover:text-orange-600' to='/wishlist' onClick={()=> setMenuOpen(false)}><CiHeart /></Link>
-            <span className='hover:text-orange-600 cursor-pointer none sm:block' onClick={openSearch}><IoMdSearch /></span>
+            {/* <span className='hover:text-orange-600 cursor-pointer none sm:block' onClick={openSearch}><IoMdSearch /></span> */}
             <Link className='hover:text-orange-600 cursor-pointer' to='/contact' onClick={()=> setMenuOpen(false)}><FaRegUser /></Link>
           </div>
         </div>
-        {bar &&
+        {/* {bar &&
           <motion.div
             animate={{
               x: 0,
@@ -89,7 +89,7 @@ function Navbar() {
             <input className='w-[80%] bg-transparent border-b text-black border-black outline-none' placeholder='Search product' type="search" name="search" id="" />
             <span className='cursor-pointer' onClick={openSearch}><RxCross2 /></span>
           </motion.div>
-        }
+        } */}
       </div>
     </div>
   );
