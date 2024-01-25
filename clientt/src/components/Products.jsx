@@ -1,10 +1,10 @@
 import React from 'react'
-import NikeData from './NikeData'
+import NikeData from './mergeData'
 import { IoMdCart } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
 import { HiOutlineViewfinderCircle } from "react-icons/hi2";
 import './custom.css';
-import PumaData from './PumaData';
+import PumaData from './mergeData';
 
 function Products() {
     return (

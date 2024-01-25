@@ -1,21 +1,21 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeItem } from '../redux/CartSlice';
+import { removeItemWish } from '../redux/CartSlice';
 import { Link } from 'react-router-dom';
-function Cart() {
+function Wish() {
   const dispatch = useDispatch();
-  const productCart = useSelector(state => state.cart.items);
+  const productCart = useSelector(state => state.cart.wishlist);
 
   const removeFromCart = (id) => {
-    dispatch(removeItem(id));
+    dispatch(removeItemWish(id));
   };
 
   return (
     <>
     {productCart.length === 0 && (
   <div className='h-[80vh] flex justify-center flex-col gap-4 items-center'>
-    <span className='font-bold text-3xl text-gray-800'>No items in the Cart</span>
-    <Link to='/shop' className='underline text-blue-500 hover:text-blue-700'>Go to Shopping</Link>
+    <span className='font-bold text-3xl text-gray-800'>No items in the Wishlist</span>
+    <Link to='/shop' className='underline text-blue-500 hover:text-blue-700'>Add SOmething</Link>
   </div>
 )}
 
@@ -39,4 +39,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default Wish;
