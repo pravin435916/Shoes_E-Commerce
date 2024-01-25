@@ -82,165 +82,38 @@
     z-index: 99;
   }
   
-  .blackfriday {
-    height: 404px;
-    width: 370px;
-    margin-left: -80px;
-  }
+ 
   
-  #shoeimg2 {
-    margin-left: -100px; /* Adjusted margin to align with the other images */
-  }
-  #image-wrapper4 {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  #image-wrapper4::before {
-    content: "Lorem Ipsum 4";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-    text-align:center; 
-    padding-top:50%; 
-    opacity:0;
-    color:white;
-    overflow: hidden;
-    transform: translateY(20%);
-    transition: opacity 0.4s ease,transform 0.4s ease;
-  }
-  
-  #image-wrapper4:hover::before {
-    opacity: 1;
-    overflow: hidden;
-    transform: translateY(0);
-  }
-  
-  .image-wrapper {
-    position: relative;
-    overflow: hidden;
-   
-  }
-  
-  .image-wrapper::before {
-    content: "Lorem Ipsum1";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-    text-align:center; 
-    padding-top:75%; 
-    opacity:0;
-    color:white;
-    overflow: hidden;
-    transform: translateY(20%);
-    transition: opacity 0.3s ease,transform 0.4s ease;
-  }
-  
-  .image-wrapper:hover::before {
-    opacity: 1;
-    transform: translateY(0);
-    overflow: hidden;
-  }
-  
-  .image-wrapper2{
-    position: relative;
-    
+.blackFriday{
+  height:650px;
+  width:400px; 
+}
+ 
+
+/* Standard styles for all screens */
+
+/* Media query for big screens */
+@media screen and (min-width: 1200px) {
+  /* Styles to apply only when the screen width is 1200 pixels or more */
+  /* Add your big screen styles here */
+#shoeimg4{
+  height:288px; 
+  width:432px; 
+}
+
+#shoeimg2{
+  width:430px; 
+}
+
+#shoeimg5{
+  height:650px; 
+}
+
+}
+
+@media screen and (max-width:600px){
+  .blackFriday{
+    height:500px;
     
   }
-
-  .image-wrapper2::before {
-    content: "Lorem Ipsum";
-    position: absolute;
-    top: 0;
-    left: -100px;
-    right: 132px;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-    opacity: 0;
-    text-align:center; 
-    padding-top:50%; 
-    overflow: hidden;
-    color:white;
-    transform: translateY(20%);
-    transition: opacity 0.3s ease,transform 0.4s ease;
-  }
-  
-  .image-wrapper2:hover::before {
-    opacity: 1;
-    transform: translateY(0);
-    overflow: hidden;
-  }
-
-  .image-wrapper3 {
-    position: relative;
-    overflow: hidden;
-   
-  }
-  
-  .image-wrapper3::before {
-    content: "Lorem Ipsum3";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-    text-align:center; 
-    overflow: hidden;
-    opacity:0;
-    color:white;
-    transform: translateY(20%);
-    transition: opacity 0.3s ease,transform 0.4s ease;
-  }
-  
-  .image-wrapper3:hover::before {
-    opacity: 1;
-    transform: translateY(0);
-    overflow: hidden;
-  }
-
-  .image-wrapper5{
-    position:relative;
-
-  }
-
-  .image-wrapper5::before {
-    content: "Black Friday Sale";
-    position: absolute;
-    top: 0;
-    left: -80px;
-    right: 80px;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-    opacity: 0;
-    color:white;
-    text-align: center;
-    padding-top:120%;
-    
-    transition: opacity 0.3s ease;
-  }
-  
-  .image-wrapper5:hover::before {
-    opacity: 1;
-  }
-
-  @keyframes slideUp {
-    from {
-      transform: translateY(100%);
-    }
-  
-    to {
-      transform: translateY(0);
-    }
-  }
+}

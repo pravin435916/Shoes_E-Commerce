@@ -17,12 +17,9 @@ function Products() {
             {/* <div className='flex items-center justify-center gap-2 w-[80%] flex-wrap'> */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6 w-[90%] ">
             {NikeData.map((product) => (
-
-                <div className='w-96 h-96 flex flex-col justify-center items-start gap-1 p-2 mb-10 border-gray-200' key={product.id}  id='product-card'>
-                    <div className='w-72 h-90 flex justify-center items-center'>
-                    <img className='w-64 h-80 mr-10 rounded' src={product.img} alt={product.name} id='product-img' />
-
-
+                <div className='w-80 h-96 sm:w-76 sm:h-[28rem] flex flex-col justify-center items-start gap-1 p-2 overflow-hidden' key={product.id}>
+                    <div className='sm:w-full sm:h-72 flex justify-center items-center'>
+                    <img className='w-40 h-36 sm:w-72 sm:h-72' src={product.img} alt={product.name}/>
                     </div>
                     <h2 className='w-32 sm:w-72 text-gray-700'>{product.name}</h2>
                     <span className='w-24 h-4 sm:w-72 text-xs overflow-hidden'>{product.desc}</span>
@@ -43,9 +40,9 @@ function Products() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6 w-[90%] ">
             {PumaData.map((product) => (
-                <div className='w-96 h-96 flex flex-col justify-center items-start gap-1 p-2 mb-10 border-gray-200' key={product.id}  id='product-card'>
-                    <div className='w-72 h-90 flex justify-center items-center'>
-                    <img className='w-64 h-80 mr-10 rounded' src={product.img} alt={product.name} id='product-img' />
+                <div className='w-80 h-96 sm:w-76 sm:h-[28rem] flex flex-col justify-center items-start gap-1 p-2 overflow-hidden' key={product.id}>
+                    <div className='sm:w-full sm:h-72 flex justify-center items-center'>
+                    <img className='w-40 h-36 sm:w-72 sm:h-72' src={product.img} alt={product.name}/>
                     </div>
                     <h2 className='w-32 sm:w-72 text-gray-700'>{product.name}</h2>
                     <span className='w-24 h-4 sm:w-72 text-xs overflow-hidden'>{product.desc}</span>
