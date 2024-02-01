@@ -109,6 +109,11 @@
   height:650px; 
 }
 
+#pro-img{
+  height:500px;
+  width:450px; 
+}
+
 }
 
 @media screen and (max-width:600px){
@@ -122,3 +127,24 @@
   height:28px;
   width:28px; 
 }
+
+@media screen and (max-width:600px){
+  #product-title{
+    font-size:28px; 
+    font-weight:bold; 
+  }
+
+  
+}
+
+#product-title{
+  font-size:32px; 
+  font-weight:bold; 
+}
+
+#pricing{
+  font-size:25px; 
+  font-weight:bold;
+  
+}
+
