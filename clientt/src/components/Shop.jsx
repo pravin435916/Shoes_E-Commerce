@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { IoMdCart } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
 import { HiOutlineViewfinderCircle } from "react-icons/hi2";
-import NikeData from './mergeData';
+import NikeData, { getNikeData, getPumaData } from './mergeData';
 import PumaData from './mergeData';
 import { addItem , wishItem } from '../redux/CartSlice';
 import { useDispatch } from 'react-redux';
 const Shop = () => {
   const dispatch = useDispatch()
+  const nikeData = getNikeData();
+  const pumaData = getPumaData();
   const [nameFilter, setNameFilter] = useState('');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
@@ -38,7 +40,7 @@ const Shop = () => {
     setMaxPrice(event.target.value);
   };
 
-  const currentData = brand === 'nike' ? NikeData : PumaData;
+  const currentData = brand === 'nike' ? nikeData : pumaData;
   const filteredProducts = currentData.filter(product =>
     product.name.toLowerCase().includes(nameFilter.toLowerCase()) &&
     (minPrice === '' || product.price >= parseInt(minPrice, 10)) &&

@@ -10,7 +10,7 @@ const NikeData = [
     },
     {
         id:2,
-        name: "Nike Dunk Low Retro Premium",
+        name: "Nike Dunk Low Retro",
         desc : "Channelling vintage style back onto the streets, its padded collar lets you take your game anywhere,in comfort.",
         img : "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/35cd473e-b388-4de0-83f5-8a8f3287eef6/dunk-low-retro-shoes-Zc0601.png",
         gender : "men",
