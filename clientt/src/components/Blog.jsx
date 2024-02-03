@@ -4,6 +4,12 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import CardContainer from './CardContainer';
 import NikeData from './mergeData';
+import Instagram from '../assets/icons8-instagram-96.png';
+import LinkedIn from '../assets/icons8-linkedin-96.png';
+import Gmail from '../assets/icons8-gmail-96.png';
+import { getNikeData } from './mergeData';
+
+
 const Blog = () => {
  
       const settings = {
@@ -37,8 +43,8 @@ const Blog = () => {
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4 text-center">Meet the Team</h2>
         
-<div className='flex justify-center gap-4  items-center sm:flex-row flex-col'>
-        <div className="bg-white w-52 h-80 rounded-lg border border-gray-300 ml-4 mr-8">
+<div className='flex justify-center gap-4  items-center sm:flex-row flex-col '>
+        <div className="bg-white w-56 h-80 rounded-lg border border-gray-300 ml-4 mr-8 shadow-md">
   <div className="flex p-2 gap-1">
     <div className="">
       <span className="bg-blue-500 inline-block center w-3 h-3 rounded-full"></span>
@@ -54,13 +60,19 @@ const Blog = () => {
     <img src='https://picsum.photos/70/70' className='rounded-full mx-auto'></img>
     <p className='text-center pt-1 text-lg'>Pravin Nandankar</p>
     <p className='text-center text-xs'>Web Developer</p>
-    <br></br>
-    <p className='text-sm text-start m-2 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+  <div className='flex justify-center gap-1 pt-2'>
+      <span className='social-media'><img src={Instagram}></img></span>
+      <span className='social-media'><img src={LinkedIn}></img></span>
+      <span className='social-media'><img src={Gmail}></img></span>
+  </div>
+   
+    <p className='text-sm text-start m-2 pt-1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
   </div>
 </div>
 
 
-<div className="bg-white w-52 h-80 rounded-lg border border-gray-300 ml-4 mr-8 ">
+
+        <div className="bg-white w-56 h-80 rounded-lg border border-gray-300 ml-4 mr-8 shadow-md">
   <div className="flex p-2 gap-1">
     <div className="">
       <span className="bg-blue-500 inline-block center w-3 h-3 rounded-full"></span>
@@ -74,15 +86,21 @@ const Blog = () => {
   </div>
   <div className="card__content">
     <img src='https://picsum.photos/70/70' className='rounded-full mx-auto'></img>
-    <p className='text-center pt-1 text-lg'>Aayush Tirmanwar </p>
+    <p className='text-center pt-1 text-lg'>Aayush Tirmanwar</p>
     <p className='text-center text-xs'>Web Developer</p>
-    <br></br>
-    <p className='text-sm text-start m-2 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+  <div className='flex justify-center gap-1 pt-2'>
+      <span className='social-media'><img src={Instagram}></img></span>
+      <span className='social-media'><img src={LinkedIn}></img></span>
+      <span className='social-media'><img src={Gmail}></img></span>
+  </div>
+   
+    <p className='text-sm text-start m-2 pt-1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
   </div>
 </div>
 
 
-<div className="bg-white w-52 h-80 rounded-lg border border-gray-300 ml-4 mr-8">
+
+        <div className="bg-white w-56 h-80 rounded-lg border border-gray-300 ml-4 mr-8 shadow-md">
   <div className="flex p-2 gap-1">
     <div className="">
       <span className="bg-blue-500 inline-block center w-3 h-3 rounded-full"></span>
@@ -96,14 +114,18 @@ const Blog = () => {
   </div>
   <div className="card__content">
     <img src='https://picsum.photos/70/70' className='rounded-full mx-auto'></img>
-    <p className='text-center pt-1 text-lg'>Jessica Sanjwani </p>
-    <p className='text-center text-xs'>UI/UX Designer</p>
-    <br></br>
-    <p className='text-sm text-start m-2 '>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+    <p className='text-center pt-1 text-lg'>Jessica Sanjwani</p>
+    <p className='text-center text-xs'>UI/UX Design</p>
+  <div className='flex justify-center gap-1 pt-2'>
+      <span className='social-media'><img src={Instagram}></img></span>
+      <span className='social-media'><img src={LinkedIn}></img></span>
+      <span className='social-media'><img src={Gmail}></img></span>
+  </div>
+   
+    <p className='text-sm text-start m-2 pt-1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
   </div>
 </div>
 </div>
-
       </section>
 
       {/* Deals Section */}

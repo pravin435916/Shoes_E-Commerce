@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice,nanoid} from '@reduxjs/toolkit';
 
 export const cartSlice = createSlice({
   name: 'cart',

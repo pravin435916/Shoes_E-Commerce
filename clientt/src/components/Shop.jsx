@@ -6,7 +6,15 @@ import NikeData, { getNikeData, getPumaData } from './mergeData';
 import PumaData from './mergeData';
 import { addItem , wishItem } from '../redux/CartSlice';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 const Shop = () => {
+  
+    function removeSpaces(text) {
+      // Use regular expression to remove spaces
+      return text.replace(/\s/g, '');
+    }
+  
+
   const dispatch = useDispatch()
   const nikeData = getNikeData();
   const pumaData = getPumaData();
@@ -116,7 +124,12 @@ const Shop = () => {
               <div className='flex gap-2 mt-2 relative'>
                 <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer' title='Add to Cart' onClick={()=> addToCart(product)} id='butt1'><IoMdCart className='z-10 absolute' /></span>
                 <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer'  onClick={()=> wishToCart(product)} id='butt2'><CiHeart className='z-10 absolute' /></span>
-                <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer' id='butt3'><HiOutlineViewfinderCircle className='z-10 absolute' /></span>
+                <Link to={`/${removeSpaces(product.name)}/${product.id}`}> 
+                        <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer ' id='butt3'>
+                        
+                            <HiOutlineViewfinderCircle className='z-10 absolute'/>                        
+                        </span>
+                        </Link>
               </div>
             </div>
           ))}

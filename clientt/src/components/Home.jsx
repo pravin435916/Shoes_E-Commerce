@@ -6,15 +6,38 @@ import Products from './Products';
 import gradient from '../assets/bg-gradient.png'
 import { IoMdCart } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
+import { CiDeliveryTruck } from "react-icons/ci";
+import { MdOutlineHeadsetMic } from "react-icons/md";
+import { GiReturnArrow } from "react-icons/gi";
+import { BsDatabase } from "react-icons/bs";
 import { HiOutlineViewfinderCircle } from "react-icons/hi2";
-import { getNikeData } from './mergeData';
+import Adidas from '../assets/icons8-adidas-trefoil-50.png'
+import Nike from '../assets/icons8-nike-50.png';
+import Puma from '../assets/icons8-puma-a-german-multinational-company---designs-and-manufactures-athletic-and-casual-footwear,-apparel-and-accessories-24.png';
+import Jordan from '../assets/icons8-air-jordan-50.png';
+import NikeData from './mergeData';
 import Image from './Images';
+import { getNikeData } from './mergeData';
 import { useDispatch } from 'react-redux';
 import { addItem, wishItem } from '../redux/CartSlice';
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import Footer from './Footer';
+import Viewmorepage from './Viewmorepage';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Navbar from './Navbar';
 function Home() {
+
+  function removeSpaces(text) {
+    // Use regular expression to remove spaces
+    return text.replace(/\s/g, '');
+  }
+
+
+
+
   const dispatch = useDispatch();
   const nikeData = getNikeData();
   const addToCart = (product) => {
@@ -66,7 +89,14 @@ function Home() {
                     <div className='flex gap-2'>
                         <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer  ' title='Add to Cart' onClick={()=> addToCart(product)} id='butt1'><IoMdCart className='z-10 absolute'/></span>
                         <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer '  onClick={()=> wishToCart(product)} id='butt2' ><CiHeart className='z-10 absolute'/></span>
-                        <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer ' id='butt3'><HiOutlineViewfinderCircle className='z-10 absolute' /></span>
+                        
+                        <Link to={`/${removeSpaces(product.name)}/${product.id}`}> 
+                        <span className='w-8 h-8 rounded-full bg-blue-300 hover:bg-gradient-to-r from-orange-400 to-red-500 text-xl text-white flex justify-center items-center cursor-pointer ' id='butt3'>
+                        
+                            <HiOutlineViewfinderCircle className='z-10 absolute'/>                        
+                        </span>
+                        </Link>
+                        
                     </div>
                 </div>
             ))}
@@ -74,8 +104,54 @@ function Home() {
 
       
     </div>
+ <div className='flex flex-col items-center sm:flex sm:flex-row sm:gap-36 sm:m-20 sm:pt-4 sm:pb-4 sm:justify-center gap-8 border border-gray-300 m-8 pt-2 pb-2 rounded-sm'>
+      <div className=''>
+        <CiDeliveryTruck className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'></CiDeliveryTruck>
+        <p className='text-center'>Fast Delivery</p>
+        <hr></hr>
+      </div>
+
+      <div>
+        <GiReturnArrow className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'></GiReturnArrow>
+        <p>Return Policy</p>
+      </div>
+
+      <div>
+         <MdOutlineHeadsetMic className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'></MdOutlineHeadsetMic>
+         <p>24x7 Customer Care</p>
+      </div>
+
+      <div>
+         <BsDatabase className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'></BsDatabase>
+         <p>Secure Payment</p>
+      </div>
+ </div>
+   
 
     <Image/>
+
+
+    <h2 className='text-center'>Brands Our Website Provides </h2>
+
+    <div className='flex flex-col sm:flex-row justify-center items-center sm:gap-20 gap-4 pb-8 mt-4'>
+        <div>
+          <img src={Adidas} className='h-20 w-20'></img>
+        </div>
+
+        <div>
+          <img src={Nike} className='h-20 w-20'></img>
+        </div>
+
+        <div>
+          <img src={Puma} className='h-20 w-20'></img>
+        </div>
+
+        <div>
+          <img src={Jordan} className='h-20 w-20'></img>
+        </div>
+
+    </div>
+
     </>
   )
 }
