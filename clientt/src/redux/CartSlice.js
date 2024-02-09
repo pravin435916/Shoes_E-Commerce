@@ -8,10 +8,18 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-      state.items.push(action.payload);
+      const itemToAdd = action.payload;
+      // Check if the item already exists in the cart
+      if (!state.items.some(item => item.id === itemToAdd.id)) {
+        state.items.push(itemToAdd);
+      }
     },
     wishItem: (state, action) => {
-      state.wishlist.push(action.payload);
+      const itemToAdd = action.payload;
+      // Check if the item already exists in the wishlist
+      if (!state.wishlist.some(item => item.id === itemToAdd.id)) {
+        state.wishlist.push(itemToAdd);
+      }
     },
     removeItem: (state, action) => {
         state.items = state.items.filter(item => item.id !== action.payload);

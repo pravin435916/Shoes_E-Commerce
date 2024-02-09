@@ -1,8 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React,{useState} from "react";
+import { useNavigate,Link } from "react-router-dom";
+import axios from 'axios';
 import './custom.css';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const CreateAccount = () => {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post('http://localhost:5000/signup', { username, email, password });
+      console.log('User Created successfully.');
+      toast.success("User Created successfully.");
+      navigate("/contact");
+    } catch (error) {
+      console.error('Registration failed.', error);
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error('Registration failed. Please try again.');
+      }
+    }
+  };
+  
+
   return (
     <div className="flex flex-col sm:flex-row items-center gap-4 mt-5">
       <div className="relative flex justify-center items-center flex-shrink-0 w-full sm:w-1/2">
@@ -32,6 +57,7 @@ const CreateAccount = () => {
               name="username"
               className="w-full sm:w-96 mt-1 p-2 border rounded-md"
               placeholder="Enter your username"
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
 
@@ -45,20 +71,9 @@ const CreateAccount = () => {
               name="email"
               className="w-full sm:w-96 mt-1 p-2 border rounded-md"
               placeholder="Enter your email"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          {/* <div className="mb-4">
-            <label htmlFor="number" className="block text-sm font-medium text-gray-600">
-              contact No
-            </label>
-            <input
-              type="number"
-              id="number"
-              name="number"
-              className="w-full sm:w-96 mt-1 p-2 border rounded-md"
-              placeholder="Enter your contact number"
-            />
-          </div> */}
           <div className="mb-4">
             <label htmlFor="password" className="block text-sm font-medium text-gray-600">
               Password
@@ -69,23 +84,10 @@ const CreateAccount = () => {
               name="password"
               className="w-full sm:w-96 mt-1 p-2 border rounded-md"
               placeholder="Enter your password"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-
-          <div className="mb-4">
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-600">
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              className="w-full sm:w-96 mt-1 p-2 border rounded-md"
-              placeholder="Confirm your password"
-            />
-          </div>
-
-          <button className="text-white py-2 px-4 rounded-md button">
+          <button className="text-white py-2 px-4 rounded-md button" onClick={handleRegister}>
             Create Account
           </button>
         </form>

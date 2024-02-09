@@ -43,7 +43,7 @@ const Blog = () => {
         <h2 className="text-2xl font-bold mb-4 text-center">Meet the Team</h2>
         
 <div className='flex justify-center gap-4  items-center sm:flex-row flex-col '>
-        <div className="bg-white w-56 h-80 rounded-lg border border-gray-300 ml-4 mr-8 shadow-md">
+        <div className="bg-white w-72 h-86 rounded-lg border border-gray-300 ml-4 mr-8 shadow-md p-5">
   <div className="flex p-2 gap-1">
     <div className="">
       <span className="bg-blue-500 inline-block center w-3 h-3 rounded-full"></span>
@@ -71,7 +71,7 @@ const Blog = () => {
 
 
 
-        <div className="bg-white w-56 h-80 rounded-lg border border-gray-300 ml-4 mr-8 shadow-md">
+        <div className="bg-white w-72 h-86 rounded-lg border border-gray-300 ml-4 mr-8 shadow-md p-5">
   <div className="flex p-2 gap-1">
     <div className="">
       <span className="bg-blue-500 inline-block center w-3 h-3 rounded-full"></span>
@@ -99,7 +99,7 @@ const Blog = () => {
 
 
 
-        <div className="bg-white w-56 h-80 rounded-lg border border-gray-300 ml-4 mr-8 shadow-md">
+        <div className="bg-white w-72 h-86 rounded-lg border border-gray-300 ml-4 mr-8 shadow-md p-5">
   <div className="flex p-2 gap-1">
     <div className="">
       <span className="bg-blue-500 inline-block center w-3 h-3 rounded-full"></span>
@@ -155,15 +155,15 @@ const Blog = () => {
       <section className="mb-8">
         <h2 className="text-center text-5xl font-bold mb-4">Our Location</h2>
         <div className="flex justify-center items-center bg-gray-200 p-4 rounded-md">
-          <iframe
+          <iframe 
             title="store"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.007327114617!2d79.05448351438428!3d21.145800992288446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4b9b57a7a23e3%3A0xc733d378dd68e0d5!2sNagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1643345569295!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.3909908611995!2d79.05904737503573!3d21.176621380510102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c1a8970c08e9%3A0xfe4a9c97e7e671cb!2sShri%20Ramdeobaba%20College%20of%20Engineering%20and%20Management!5e0!3m2!1sen!2sin!4v1707481910496!5m2!1sen!2sin"
             width="80%"
             height="500"
             allowFullScreen=""
             loading="lazy"
             className="rounded-md w-screen sm:w-[80%]"
-          ></iframe>
+            ></iframe>
         </div>
       </section>
     </div>

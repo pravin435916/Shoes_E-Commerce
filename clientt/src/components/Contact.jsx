@@ -1,7 +1,32 @@
-import React from "react";
+import React,{useState} from "react";
 import './custom.css';
-import { Link } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate,Link } from "react-router-dom";
+import axios from "axios";
 const Contact = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5000/login', { email, password });
+      const { token } = response.data;
+      localStorage.setItem('token', token);
+      console.log('User Login successfully.');
+      toast.success("User Login successfully.");
+      navigate("/");
+    } catch (error) {
+      console.error('Registration failed.', error);
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error('Login failed. Please try again.');
+      }
+    }
+  };
   return (
     <div className="flex flex-col sm:flex-row items-center gap-4 mt-5">
       <div className="relative flex justify-center items-center flex-shrink-0 w-full sm:w-1/2">
@@ -14,7 +39,7 @@ const Contact = () => {
         ></video>
          <div className="absolute z-10 bottom-5 sm:bottom-20">
         <button className=" text-xs sm:text-xl button">
-          <Link to='/SignUp'>Create and Account</Link>
+          <Link to='/SignUp'>Create an Account</Link>
         </button>
         </div>
       </div>
@@ -23,14 +48,15 @@ const Contact = () => {
         <form>
           <div className="mb-4">
             <label htmlFor="username" className="block text-sm font-medium text-gray-600">
-              Username
+              Email
             </label>
             <input
-              type="text"
-              id="username"
-              name="username"
+              type="email"
+              id="email"
+              name="email"
               className="w-full sm:w-96 mt-1 p-2 border rounded-md"
-              placeholder="Enter your username"
+              placeholder="Enter your Email"
+              onChange={(e)=> setEmail(e.target.value)}
             />
           </div>
 
@@ -44,10 +70,11 @@ const Contact = () => {
               name="password"
               className="w-full sm:w-96 mt-1 p-2 border rounded-md"
               placeholder="Enter your password"
+              onChange={(e)=> setPassword(e.target.value)}
             />
           </div>
 
-          <button className="text-white py-2 px-4 rounded-md button">
+          <button className="text-white py-2 px-4 rounded-md button" onClick={handleLogin}>
             Sign In
           </button>
         </form>

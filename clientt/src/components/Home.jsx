@@ -10,10 +10,10 @@ import { MdOutlineHeadsetMic } from "react-icons/md";
 import { GiReturnArrow } from "react-icons/gi";
 import { BsDatabase } from "react-icons/bs";
 import { HiOutlineViewfinderCircle } from "react-icons/hi2";
-import Adidas from '../assets/icons8-adidas-trefoil-50.png'
-import Nike from '../assets/icons8-nike-50.png';
-import Puma from '../assets/icons8-puma-a-german-multinational-company---designs-and-manufactures-athletic-and-casual-footwear,-apparel-and-accessories-24.png';
-import Jordan from '../assets/icons8-air-jordan-50.png';
+import { SiAdidas } from "react-icons/si";
+import { SiNike } from "react-icons/si";
+import { SiPuma } from "react-icons/si";
+import { SiJordan } from "react-icons/si";
 import Image from './Images';
 import { PumaData } from './mergeData';
 import { getNikeData } from './mergeData';
@@ -25,7 +25,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ProductsCarousel from './ProductsCarousel';
 function Home() {
-
   function removeSpaces(text) {
     // Use regular expression to remove spaces
     return text.replace(/\s/g, '');
@@ -95,26 +94,26 @@ function Home() {
 
       
     </div>
-            <ProductsCarousel pumaData={PumaData}/>
- <div className='flex flex-col items-center sm:flex sm:flex-row sm:gap-36 sm:m-20 sm:pt-4 sm:pb-4 sm:justify-center gap-8 border border-gray-300 m-8 pt-2 pb-2 rounded-sm'>
+    <ProductsCarousel pumaData={PumaData}/>
+     <div className='flex flex-col items-center sm:flex sm:flex-row sm:gap-36 sm:m-20 sm:pt-4 sm:pb-4 sm:justify-center gap-8 border border-gray-300 m-8 pt-2 pb-2 rounded-sm'>
       <div className=''>
-        <CiDeliveryTruck className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'></CiDeliveryTruck>
+        <CiDeliveryTruck className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'/>
         <p className='text-center'>Fast Delivery</p>
         <hr></hr>
       </div>
 
       <div>
-        <GiReturnArrow className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'></GiReturnArrow>
+        <GiReturnArrow className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'/>
         <p>Return Policy</p>
       </div>
 
       <div>
-         <MdOutlineHeadsetMic className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'></MdOutlineHeadsetMic>
+         <MdOutlineHeadsetMic className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'/>
          <p>24x7 Customer Care</p>
       </div>
 
       <div>
-         <BsDatabase className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'></BsDatabase>
+         <BsDatabase className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'/>
          <p>Secure Payment</p>
       </div>
  </div>
@@ -123,25 +122,13 @@ function Home() {
     <Image/>
 
 
-    <h2 className='text-center'>Brands Our Website Provides </h2>
 
-    <div className='flex flex-col sm:flex-row justify-center items-center sm:gap-20 gap-4 pb-8 mt-4'>
-        <div>
-          <img src={Adidas} className='h-20 w-20'></img>
-        </div>
-
-        <div>
-          <img src={Nike} className='h-20 w-20'></img>
-        </div>
-
-        <div>
-          <img src={Puma} className='h-20 w-20'></img>
-        </div>
-
-        <div>
-          <img src={Jordan} className='h-20 w-20'></img>
-        </div>
-
+    <h2 className='text-center text-3xl font-bold'>Brands Our Website Provides </h2>
+    <div className='flex justify-center items-center gap-4 sm:gap-20 p-10'>
+          <SiAdidas className='h-24 w-24'/>
+          <SiNike className='h-24 w-24'/>
+          <SiPuma className='h-24 w-24'/>
+          <SiJordan className='h-24 w-24'/>
     </div>
 
     </>
