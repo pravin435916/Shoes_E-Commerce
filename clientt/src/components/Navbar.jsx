@@ -7,6 +7,7 @@ import { CiHeart } from "react-icons/ci";
 import { FaRegUser } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import Badge from '@mui/material/Badge';
+import logo from '../assets/logo.png'
 import './custom.css';
 import { useSelector } from 'react-redux';
 function Navbar() {
@@ -27,17 +28,7 @@ function Navbar() {
       <div className='w-full flex flex-col justify-center items-center overflow-hidden'>
         <div className='relative w-full sm:w-[70%] h-1/2 sm:h-24 border shadow-2xl p-4 mt-4 flex flex-col sm:flex-row items-center justify-between bg-white z-10'>
           <div className='flex items-center gap-2'>
-          <svg
-           xmlns="http://www.w3.org/2000/svg"
-           viewBox="0 0 24 24"
-           fill="orange"
-           width="48px"
-           height="48px"
-         >
-           <path d="M0 0h24v24H0V0z" fill="none" />
-           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.41 14.59l-2.83-2.83L7 15.17l3.59 3.58 6.59-6.59-1.41-1.42-5.18 5.18z" />
-         </svg>
-          <span className='font-bold overline'>Jap</span>
+           <img className='h-36 w-36' src={logo} alt="" />
           </div>
           {/* Responsive Menu Button */}
           <button

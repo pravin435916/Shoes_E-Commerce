@@ -7,7 +7,7 @@ import NikeData from './mergeData';
 import Instagram from '../assets/icons8-instagram-96.png';
 import LinkedIn from '../assets/icons8-linkedin-96.png';
 import Gmail from '../assets/icons8-gmail-96.png';
-import { getNikeData } from './mergeData';
+import mergeData, { getNikeData } from './mergeData';
 
 
 const Blog = () => {
@@ -22,10 +22,9 @@ const Blog = () => {
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 2,
+              slidesToShow:1,
               slidesToScroll: 1,
               infinite: true,
-              dots: true,
             },
           },
           {
@@ -133,7 +132,7 @@ const Blog = () => {
       <h2 className="text-5xl font-bold mb-4 p-5">Special Deals</h2>
 
       <Slider {...settings}>
-        {NikeData.map((deal, index) => (
+        {mergeData.map((deal, index) => (
           <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md px-5">
             <img
               src={deal.img}

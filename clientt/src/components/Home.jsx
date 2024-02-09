@@ -2,7 +2,6 @@ import React from 'react'
 import './custom.css'
 import shoes from '../assets/hero-shoes.png'
 import { IoIosAdd } from "react-icons/io";
-import Products from './Products';
 import gradient from '../assets/bg-gradient.png'
 import { IoMdCart } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
@@ -15,29 +14,22 @@ import Adidas from '../assets/icons8-adidas-trefoil-50.png'
 import Nike from '../assets/icons8-nike-50.png';
 import Puma from '../assets/icons8-puma-a-german-multinational-company---designs-and-manufactures-athletic-and-casual-footwear,-apparel-and-accessories-24.png';
 import Jordan from '../assets/icons8-air-jordan-50.png';
-import NikeData from './mergeData';
 import Image from './Images';
+import { PumaData } from './mergeData';
 import { getNikeData } from './mergeData';
 import { useDispatch } from 'react-redux';
 import { addItem, wishItem } from '../redux/CartSlice';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
-import { BrowserRouter,Route,Routes } from 'react-router-dom';
-import Footer from './Footer';
-import Viewmorepage from './Viewmorepage';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Navbar from './Navbar';
+import ProductsCarousel from './ProductsCarousel';
 function Home() {
 
   function removeSpaces(text) {
     // Use regular expression to remove spaces
     return text.replace(/\s/g, '');
   }
-
-
-
-
   const dispatch = useDispatch();
   const nikeData = getNikeData();
   const addToCart = (product) => {
@@ -71,7 +63,6 @@ function Home() {
         </div>
        </div>
            
-
        {/* nike data  */}
        <div className='flex items-center justify-center flex-col ml-4 gap-4'>
                 <span className='text-5xl font-bold'>Nike Collection</span> 
@@ -79,7 +70,7 @@ function Home() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6 w-[90%] ml-4">
             {nikeData.map((product) => (
-                <div className='w-80 h-96 sm:w-76 sm:h-[28rem] flex flex-col justify-center items-start gap-1 p-2 overflow-hidden' key={product.id}>
+              <div className='w-80 h-96 sm:w-76 sm:h-[28rem] flex flex-col justify-center items-start gap-1 p-2 overflow-hidden' key={product.id}>
                     <div className='sm:w-full sm:h-72 flex justify-center items-center'>
                     <img className='w-40 h-36 sm:w-72 sm:h-72' src={product.img} alt={product.name}/>
                     </div>
@@ -104,6 +95,7 @@ function Home() {
 
       
     </div>
+            <ProductsCarousel pumaData={PumaData}/>
  <div className='flex flex-col items-center sm:flex sm:flex-row sm:gap-36 sm:m-20 sm:pt-4 sm:pb-4 sm:justify-center gap-8 border border-gray-300 m-8 pt-2 pb-2 rounded-sm'>
       <div className=''>
         <CiDeliveryTruck className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'></CiDeliveryTruck>
