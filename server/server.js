@@ -12,8 +12,8 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-const DB = 'mongodb+srv://pravinnandankar03:piyu916@cluster0.bpci2y3.mongodb.net/e-commerce';
-mongoose.connect(DB, {
+// const DB = 'mongodb+srv://pravinnandankar03:piyu916@cluster0.bpci2y3.mongodb.net/e-commerce';
+mongoose.connect(process.env.DB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
