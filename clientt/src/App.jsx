@@ -16,16 +16,15 @@ import Viewmorepage from './components/Viewmorepage';
 import './App.css'
 import UserList from './Admin/UserList';
 import AdminDashboard from './Admin/AdminDashboard';
+import Collections from './components/Collections';
+import UploadProduct from './Admin/UploadProduct';
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading delay
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Adjust the delay as needed
-
-    // Cleanup function to clear the timer if the component unmounts before the delay finishes
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -48,28 +47,25 @@ function App() {
         </div>
       ) : (
         <BrowserRouter>
-          <Navbar />
+          {/* <Navbar /> */}
           <Routes>
+
             <Route path="/" element={<Home />} />
-            <Route
-          path="/users/*"
-          element={
-            isLoggedIn() ? (
-              <AdminRoutes />
-            ) : (
-              <Navigate to="/" />
-            )
-          }
-        />
             <Route path="/shop" element={<Shop />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/SignUp" element={<CreateAccount />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/wishlist" element={<Wish />} />
-            <Route path="/collections" element={<Products />} />
-            {/* <Route path="/users" element={<AdminDashboard />} /> */}
-            {/* <Route path="/users" element={<UserList />} /> */}
+            <Route path="/collections" element={<Collections/>} />
+
+            <Route path="/admin/" element={<AdminDashboard />}>
+               <Route path="users" element={<UserList />} />
+               <Route path="products" element={<Products />} />
+               <Route path="upload" element={<UploadProduct />} />
+            </Route>
+
+            <Route path="/*" element={<Error404 />} />
             {allProducts.map((product) => (
               <Route
                 key={product.id}
@@ -77,24 +73,11 @@ function App() {
                 element={<Viewmorepage name={product.name} desc={product.desc} img={product.img} price={product.price} />} // Replace YourComponent with the appropriate component to render
               />
             ))}
-            <Route path="*" element={<Error404 />} />
           </Routes>
           <Footer />
         </BrowserRouter>
       )}
     </>
   );
-}
-const AdminRoutes = () => {
-  // Check if user is admin
-  const isAdmin = () => {
-    const userRole = localStorage.getItem('userRole');
-    return userRole === 'admin'; // Return true if user role is admin
-  };
-  return(
-    <Routes>
-      <Route path="/users" element={isAdmin() ? <UserList /> : <Navigate to="/contact" />} />
-    </Routes>
-  )
 }
 export default App;

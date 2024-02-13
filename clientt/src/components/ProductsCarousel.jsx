@@ -41,11 +41,12 @@ const ProductsCarousel = ({ pumaData }) => {
   });
 
   return (
-    <Slider {...settings}>
-        {/* <div className='flex items-center justify-center flex-col ml-4 gap-4'>
+    <>
+        <div className='flex items-center justify-center flex-col ml-4 gap-4'>
                 <span className='text-5xl font-bold'>Nike Collection</span> 
                 <span className='text-gray-500 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi incidunt neque pariatur.</span>
-            </div> */}
+            </div>
+    <Slider {...settings}>
       {pumaData.map(product => (
          <div className='w-80 h-96 sm:w-76 sm:h-[28rem] flex flex-col justify-center items-start gap-1 p-2 overflow-hidden' key={product.id}>
          <div className='sm:w-full sm:h-72 flex justify-center items-center'>
@@ -69,6 +70,7 @@ const ProductsCarousel = ({ pumaData }) => {
      </div>
       ))}
     </Slider>
+    </>
   );
 };
 

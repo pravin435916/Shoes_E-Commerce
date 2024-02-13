@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate,Link } from "react-router-dom";
 import axios from "axios";
+import Navbar from "./Navbar";
 const Contact = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -28,10 +29,12 @@ const Contact = () => {
     }
   };
   return (
-    <div className="flex flex-col sm:flex-row items-center gap-4 mt-5">
+    <>
+    <Navbar/>
+    <div className="flex flex-col sm:flex-row items-center gap-4 h-[80vh] my-5">
       <div className="relative flex justify-center items-center flex-shrink-0 w-full sm:w-1/2">
         <video
-          className="h-[12rem] w-[20rem] sm:w-[36rem] object-cover sm:h-[32rem]"
+          className="h-[12rem] w-[20rem] sm:w-[36rem] object-cover sm:h-[32rem] m-10"
           src="https://assets.mixkit.co/videos/preview/mixkit-typing-her-shoes-before-exercising-15060-large.mp4"
           autoPlay
           loop
@@ -80,6 +83,7 @@ const Contact = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

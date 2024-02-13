@@ -4,6 +4,7 @@ import axios from 'axios';
 import './custom.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Navbar from "./Navbar";
 const CreateAccount = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
@@ -29,7 +30,9 @@ const CreateAccount = () => {
   
 
   return (
-    <div className="flex flex-col sm:flex-row items-center gap-4 mt-5">
+    <>
+    <Navbar/>
+    <div className="flex flex-col sm:flex-row items-center gap-4 h-[80vh] my-5">
       <div className="relative flex justify-center items-center flex-shrink-0 w-full sm:w-1/2">
         <video
           className="h-[12rem] w-[20rem] sm:w-[36rem] object-cover sm:h-[32rem]"
@@ -93,6 +96,7 @@ const CreateAccount = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

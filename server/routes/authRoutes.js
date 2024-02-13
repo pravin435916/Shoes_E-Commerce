@@ -6,7 +6,6 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 router.post('/signup', async (req, res) => {
   const { username, email, password ,isAdmin} = req.body;
-
   try {
     //check existing email
     const existingUser = await User.findOne({ email });
@@ -54,7 +53,7 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    const token = jwt.sign({ userId: user._id, isAdmin: user.isAdmin }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id, isAdmin: user.isAdmin }, process.env.JWT_SECRET, { expiresIn: '1d' });
     res.json({ message: 'Login successful', email, token });
   } catch (error) {
     console.error('Error logging in:', error);

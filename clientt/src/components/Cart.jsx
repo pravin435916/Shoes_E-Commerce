@@ -1,65 +1,106 @@
+// Cart.js
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeItem } from '../redux/CartSlice';
 import { Link } from 'react-router-dom';
 
 function Cart() {
-  const [quantity, setQuantity] = useState("1");
+  const [quantities, setQuantities] = useState({});
+  const [showPayment, setShowPayment] = useState(false); // State to toggle payment page
   const dispatch = useDispatch();
   const productCart = useSelector(state => state.cart.items);
+
+  const updateQuantity = (id, quantity) => {
+    setQuantities(prevState => ({
+      ...prevState,
+      [id]: quantity
+    }));
+  };
 
   const removeFromCart = (id) => {
     dispatch(removeItem(id));
   };
 
-// Function to calculate total cost
-const calculateTotalCost = () => {
-  let total = 0;
-  productCart.forEach((product) => {
-    total += parseFloat(product.price.replace(',', '')) * parseInt(quantity);
-  });
-  return total.toFixed(2); // Round the total to 2 decimal places
-};
+  const calculateTotalCost = () => {
+    let total = 0;
+    productCart.forEach((product) => {
+      const quantity = quantities[product.id] || 1;
+      total += parseFloat(product.price.replace(',', '')) * parseInt(quantity);
+    });
+    return total.toFixed(2);
+  };
 
+  const handleCheckout = () => {
+    setShowPayment(true);
+  };
+
+  const handlePayment = () => {
+    alert(`Payment Successful! Total Amount: $${calculateTotalCost()}`);
+  };
 
   return (
-    <>
-      {productCart.length === 0 && (
-        <div className='h-[80vh] flex justify-center flex-col gap-4 items-center'>
-          <span className='font-bold text-3xl text-gray-800'>No items in the Cart</span>
-          <Link to='/shop' className='underline text-blue-500 hover:text-blue-700'>Go to Shopping</Link>
-        </div>
-      )}
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full ml-4 m-5">
-        {productCart.map((product) => (
-          <div className='w-full h-auto sm:h-full flex flex-col justify-start items-center gap-4 p-4 overflow-hidden border border-gray-200 rounded-md' key={product.id}>
-            <div className='w-full h-48 flex justify-center items-center'>
-              <img className='w-36 h-36 sm:w-48 sm:h-48 object-cover' src={product.img} alt={product.name} />
-            </div>
-            <div className="w-full flex flex-col justify-start items-start">
-              <h2 className='text-lg sm:text-xl font-bold text-gray-700'>{product.name}</h2>
-              <p className='text-sm text-gray-500'>{product.desc}</p>
-              <p className='text-base font-bold text-gray-700 mt-2'>${product.price}</p>
-              <div className='flex flex-row justify-center'>
-                <button className='bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 mt-2' onClick={() => removeFromCart(product.id)}>Remove from cart</button>
-                <label htmlFor="quantity" className='sm:ml-8 sm:mt-2 ml-6 mt-3'>Quantity:</label>
-                <select value={quantity} className='sm:ml-2 sm:mb-1 ml-1 mt-1' id="quantity" onChange={(e) => setQuantity(e.target.value)}>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
-              </div>
-            </div>
+    <div className="container mx-auto mt-5 min-h-[80vh]">
+      {showPayment ? (
+        <div className="flex justify-center items-center h-full">
+        <div className="bg-white rounded-md p-8 shadow-md">
+          <h2 className="text-2xl font-bold mb-4 text-gray-800">Payment Details</h2>
+          <div className="border-b border-gray-300 mb-4"></div>
+          <p className="text-lg text-gray-700 mb-4">Total Amount: <span className="font-bold">${calculateTotalCost()}</span></p>
+          <label htmlFor="cardNumber" className="block text-sm text-gray-600 mb-2">Card Number</label>
+          <input type="text" id="cardNumber" className="w-full border border-gray-300 rounded-md px-4 py-2 mb-4" placeholder="Enter your card number" required />
+          <label htmlFor="expiry" className="block text-sm text-gray-600 mb-2">Expiration Date</label>
+          <div className="flex mb-4">
+            <input type="text" id="expiry" className="w-1/2 mr-2 border border-gray-300 rounded-md px-4 py-2" placeholder="MM/YYYY" required/>
+            <input type="text" id="cvv" className="w-1/2 border border-gray-300 rounded-md px-4 py-2" placeholder="CVV" required/>
           </div>
-        ))}
+          <label htmlFor="name" className="block text-sm text-gray-600 mb-2">Cardholder Name</label>
+          <input type="text" id="name" className="w-full border border-gray-300 rounded-md px-4 py-2 mb-4" placeholder="Enter cardholder name" required/>
+          <button onClick={handlePayment} className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600">Pay Now</button>
+        </div>
       </div>
-      {/* Display total cost */}
-      <div className="flex justify-center mt-4">
-        <h2 className="text-xl font-bold">Total Cost: ${calculateTotalCost()}</h2>
-      </div>
-    </>
+      
+      ) : (
+        <>
+          {productCart.length === 0 ? (
+            <div className='h-[80vh] flex justify-center flex-col gap-4 items-center'>
+              <span className='font-bold text-3xl text-gray-800'>No items in the Cart</span>
+              <Link to='/shop' className='underline text-blue-500 hover:text-blue-700'>Go to Shopping</Link>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-h-[80vh]">
+              {productCart.map((product) => (
+                <div className='border border-gray-200 rounded-md shadow-md overflow-hidden' key={product.id}>
+                  <img className='w-full h-48 object-cover' src={product.img} alt={product.name} />
+                  <div className="p-4">
+                    <h2 className='text-lg font-bold text-gray-700'>{product.name}</h2>
+                    <p className='text-sm text-gray-500 mt-1'>{product.desc}</p>
+                    <p className='text-base font-bold text-gray-700 mt-2'>${product.price}</p>
+                    <div className='flex justify-between items-center mt-4'>
+                      <button className='bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600' onClick={() => removeFromCart(product.id)}>Remove</button>
+                      <div>
+                        <label htmlFor={`quantity-${product.id}`} className='mr-2'>Quantity:</label>
+                        <select
+                          value={quantities[product.id] || "1"}
+                          id={`quantity-${product.id}`}
+                          onChange={(e) => updateQuantity(product.id, e.target.value)}
+                        >
+                          {[1, 2, 3, 4].map((qty) => (
+                            <option key={qty} value={qty}>{qty}</option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+          <div className="flex justify-center mt-4 mb-10">
+            <button onClick={handleCheckout} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Proceed to Checkout</button>
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 

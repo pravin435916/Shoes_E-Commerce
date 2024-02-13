@@ -7,6 +7,7 @@ import PumaData from './mergeData';
 import { addItem , wishItem } from '../redux/CartSlice';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 const Shop = () => {
   
     function removeSpaces(text) {
@@ -49,13 +50,16 @@ const Shop = () => {
   };
 
   const currentData = brand === 'nike' ? nikeData : pumaData;
-  const filteredProducts = currentData.filter(product =>
-    product.name.toLowerCase().includes(nameFilter.toLowerCase()) &&
+const filteredProducts = currentData.filter(product =>
+    (nameFilter === '' || product.name.toLowerCase().includes(nameFilter.toLowerCase())) &&
     (minPrice === '' || product.price >= parseInt(minPrice, 10)) &&
     (maxPrice === '' || product.price <= parseInt(maxPrice, 10))
-  );
+);
+
 
   return (
+    <>
+    <Navbar/>
     <div className='flex sm:flex-row flex-col w-full h-[84vh]  relative  overflow-hidden'>
       <div className='w-full mx-5 sm:w-[24rem] bg-white p-2 sm:p-8 block sm:sticky top-0'>
         <h1 className='text-2xl font-bold mb-4'>Filter Products</h1>
@@ -136,6 +140,7 @@ const Shop = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

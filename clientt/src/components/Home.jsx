@@ -24,6 +24,7 @@ import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import ProductsCarousel from './ProductsCarousel';
+import Navbar from './Navbar';
 function Home() {
   function removeSpaces(text) {
     // Use regular expression to remove spaces
@@ -41,6 +42,7 @@ function Home() {
   };
   return (
     <>
+    <Navbar/>
     <div className='w-full sm:flex justify-center items-center flex-col h-full overflow-hidden'>
       <img className='absolute w-[64rem] right-0 -z-10 top-0' src={gradient} alt="" />
        <div className='flex justify-center items-center gap-5 flex-col sm:flex-row w-full sm:w-[80%] h-[90vh]'>
@@ -95,7 +97,7 @@ function Home() {
       
     </div>
     <ProductsCarousel pumaData={PumaData}/>
-     <div className='flex flex-col items-center sm:flex sm:flex-row sm:gap-36 sm:m-20 sm:pt-4 sm:pb-4 sm:justify-center gap-8 border border-gray-300 m-8 pt-2 pb-2 rounded-sm'>
+     <div className='flex justify-center items-center gap-4 sm:gap-20 p-10'>
       <div className=''>
         <CiDeliveryTruck className='sm:h-20 sm:w-20 h-12 w-12 mx-auto'/>
         <p className='text-center'>Fast Delivery</p>
@@ -118,11 +120,7 @@ function Home() {
       </div>
  </div>
    
-
     <Image/>
-
-
-
     <h2 className='text-center text-3xl font-bold'>Brands Our Website Provides </h2>
     <div className='flex justify-center items-center gap-4 sm:gap-20 p-10'>
           <SiAdidas className='h-24 w-24'/>

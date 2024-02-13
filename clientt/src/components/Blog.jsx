@@ -8,6 +8,7 @@ import Instagram from '../assets/icons8-instagram-96.png';
 import LinkedIn from '../assets/icons8-linkedin-96.png';
 import Gmail from '../assets/icons8-gmail-96.png';
 import mergeData, { getNikeData } from './mergeData';
+import Navbar from './Navbar';
 
 
 const Blog = () => {
@@ -37,6 +38,8 @@ const Blog = () => {
         ],
       };
   return (
+    <>
+    <Navbar/>
     <div className="container mx-auto mt-8">
       {/* Owner Details */}
       <section className="mb-8">
@@ -56,7 +59,7 @@ const Blog = () => {
     </div>
   </div>
   <div className="card__content">
-    <img src='https://picsum.photos/70/70' className='rounded-full mx-auto'></img>
+    <img src='https://media.licdn.com/dms/image/D4D03AQEluYSStsFUUA/profile-displayphoto-shrink_200_200/0/1695389851075?e=2147483647&v=beta&t=piU3XjpxN8_EBggtolx0HDHipb8bHi0AN4H4S1P0Fq4' className='rounded-full mx-auto'></img>
     <p className='text-center pt-1 text-lg'>Pravin Nandankar</p>
     <p className='text-center text-xs'>Web Developer</p>
   <div className='flex justify-center gap-1 pt-2'>
@@ -84,7 +87,7 @@ const Blog = () => {
     </div>
   </div>
   <div className="card__content">
-    <img src='https://picsum.photos/70/70' className='rounded-full mx-auto'></img>
+    <img src='https://media.licdn.com/dms/image/D4D03AQF25d4jSaugGQ/profile-displayphoto-shrink_200_200/0/1695833081290?e=2147483647&v=beta&t=GJYsdhz-Oqts25mgKQ9X8CnTVsOnyTwB17cYgEJwkPo' className='rounded-full mx-auto'></img>
     <p className='text-center pt-1 text-lg'>Aayush Tirmanwar</p>
     <p className='text-center text-xs'>Web Developer</p>
   <div className='flex justify-center gap-1 pt-2'>
@@ -129,7 +132,7 @@ const Blog = () => {
 
       {/* Deals Section */}
       <section className="mb-8">
-      <h2 className="text-5xl font-bold mb-4 p-5">Special Deals</h2>
+      <h2 className="text-5xl font-bold mb-4 p-5 text-center">Special Deals</h2>
 
       <Slider {...settings}>
         {mergeData.map((deal, index) => (
@@ -167,6 +170,7 @@ const Blog = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
