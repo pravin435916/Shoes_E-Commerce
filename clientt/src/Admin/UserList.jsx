@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import { baseUrl } from '../baseUrl';
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -10,7 +11,7 @@ const UserList = () => {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/admin/users', {
+        const response = await fetch(`${baseUrl}/admin/users`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,

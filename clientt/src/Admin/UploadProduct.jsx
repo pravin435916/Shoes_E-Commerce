@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { baseUrl } from '../baseUrl';
 const UploadProduct = () => {
   const [name, setName] = useState('');
   const [desc, setDesc] = useState('');
@@ -29,7 +30,7 @@ const UploadProduct = () => {
       formData.append('productPrice', price);
       formData.append('productStar', star);
 
-      const response = await axios.post('http://localhost:5000/api/NikeProducts',formData, {
+      const response = await axios.post(`${baseUrl}/api/NikeProducts`,formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

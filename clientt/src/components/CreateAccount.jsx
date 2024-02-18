@@ -4,6 +4,7 @@ import axios from 'axios';
 import './custom.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { baseUrl } from "../baseUrl";
 import Navbar from "./Navbar";
 const CreateAccount = () => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const CreateAccount = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/signup', { username, email, password });
+      await axios.post(`${baseUrl}/signup`, { username, email, password });
       console.log('User Created successfully.');
       toast.success("User Created successfully.");
       navigate("/contact");

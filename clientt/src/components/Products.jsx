@@ -4,7 +4,7 @@ import { CiHeart } from "react-icons/ci";
 import { HiOutlineViewfinderCircle } from "react-icons/hi2";
 import './custom.css';
 import { Link } from 'react-router-dom';
-
+import { baseUrl } from '../baseUrl';
 function Products() {
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(null);
@@ -12,9 +12,18 @@ function Products() {
   useEffect(() => {
     const fetchNikeProducts = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/NikeProducts');
+        const token = localStorage.getItem('token');
+        const response = await fetch(`${baseUrl}/api/NikeProducts`, {
+          method: 'GET',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error('Unauthorized');
+        } else {
+          console.log("Authorized");
         }
         const data = await response.json();
         setProducts(data.products);
@@ -25,7 +34,8 @@ function Products() {
     };
 
     fetchNikeProducts();
-  }, []);
+  }, []); 
+
     function removeSpaces(text) {
         // Use regular expression to remove spaces
         return text.replace(/\s/g, '');
@@ -34,10 +44,10 @@ function Products() {
     return (
         <>
         <div className='w-full  flex items-center justify-center flex-col h-full gap-8 overflow-hidden'>
-      <div className='flex items-center justify-center flex-col m-5 gap-4'>
+     {products &&  <div className='flex items-center justify-center flex-col m-5 gap-4'>
                 <span className='text-5xl font-bold'>Latest Collections</span> 
                 <span className='text-gray-500 '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi incidunt neque pariatur.</span>
-            </div>
+            </div> }
             {/* <div className='flex items-center justify-center gap-2 w-[80%] flex-wrap'> */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6 w-[90%] ">
             {products.map((product) => (

@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/product');
-
-router.get('/api/NikeProducts', async (req, res) => {
+const isAdmin = require('../middleware/admin');
+router.get('/api/NikeProducts',isAdmin, async (req, res) => {
   try {
     const products = await Product.find();
     res.json({ products });
@@ -12,13 +12,13 @@ router.get('/api/NikeProducts', async (req, res) => {
   }
 });
 
-router.post('/api/NikeProducts', async (req, res) => {
+router.post('/api/NikeProducts',async (req, res) => {
   const { name, desc, img, gender, price, star, brand } = req.body;
   if (!name || !desc || !price) {
     return res.status(400).json({ error: 'Product name, description, and price are required' });
   }
   try {
-    const newProduct = await Product.create({ name, desc, img, gender, price, star, brand });
+    await Product.create({ name, desc, img, gender, price, star, brand });
     res.json({ success: true, msg : 'successfully added' });
   } catch (error) {
     console.error('Error creating product:', error);

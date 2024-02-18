@@ -9,7 +9,7 @@ const AdminDashboard = () => {
     const checkAdmin = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/check', {
+        const response = await fetch(`${baseUrl}/check`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
