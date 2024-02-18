@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/product');
 const isAdmin = require('../middleware/admin');
-router.get('/api/NikeProducts',isAdmin, async (req, res) => {
+router.get('/api/NikeProducts', async (req, res) => {
   try {
     const products = await Product.find();
     res.json({ products });
@@ -12,7 +12,7 @@ router.get('/api/NikeProducts',isAdmin, async (req, res) => {
   }
 });
 
-router.post('/api/NikeProducts',async (req, res) => {
+router.post('/api/NikeProducts',isAdmin,async (req, res) => {
   const { name, desc, img, gender, price, star, brand } = req.body;
   if (!name || !desc || !price) {
     return res.status(400).json({ error: 'Product name, description, and price are required' });
