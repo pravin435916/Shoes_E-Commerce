@@ -18,6 +18,7 @@ import UserList from './Admin/UserList';
 import AdminDashboard from './Admin/AdminDashboard';
 import Collections from './components/Collections';
 import UploadProduct from './Admin/UploadProduct';
+import Carts from './components/Carts';
 function App() {
   const [loading, setLoading] = useState(true);
 
@@ -55,7 +56,8 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/SignUp" element={<CreateAccount />} />
-            <Route path="/cart" element={<Cart />} />
+            {/* <Route path="/cart" element={<Cart />} /> */}
+            <Route path="/cart" element={<Carts />} />
             <Route path="/wishlist" element={<Wish />} />
             <Route path="/collections" element={<Collections/>} />
 

@@ -43,7 +43,7 @@ function Home() {
   return (
     <>
     <Navbar/>
-    <div className='w-full sm:flex justify-center items-center flex-col h-full overflow-hidden'>
+    <div className='w-full sm:flex justify-center items-center flex-col h-full overflow-hidden platypi'>
       <img className='absolute w-[64rem] right-0 -z-10 top-0' src={gradient} alt="" />
        <div className='flex justify-center items-center gap-5 flex-col sm:flex-row w-full sm:w-[80%] h-[90vh]'>
         <div className='flex flex-col items-start sm:items-start gap-8 p-2 sm:p-10 ml-16 sm:ml-0 text-wrap'>
